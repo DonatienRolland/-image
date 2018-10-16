@@ -1,0 +1,22 @@
+
+  <% @category.albums.each do |ablum| %>
+
+    <%= ablum.title %>
+    <br>
+
+
+
+  <% end %>
+
+
+
+<h2>Ajouter un album</h2>
+
+<%= simple_form_for @category do |f| %>
+    <%= f.object.title %>
+  <%= f.simple_fields_for :albums do |u| %>
+    <%= u.input :title %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
+

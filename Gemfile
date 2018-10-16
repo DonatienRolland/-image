@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.4.3'
 
 gem 'bootsnap', require: false
 gem 'devise'
@@ -29,3 +29,11 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+# add aplication.yml
+gem "figaro"
+gem 'cloudinary'
+gem 'carrierwave'
+
+
+gem "cocoon"

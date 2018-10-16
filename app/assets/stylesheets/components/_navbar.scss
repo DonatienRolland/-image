@@ -1,18 +1,26 @@
 /* Main navbar */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: white;
+  background: #ffffff00;
   transition: all 0.3s ease;
+  // height: 15vh;
   height: 70px;
   padding: 0px 30px;
   display: flex;
-  align-items: center;
+  align-items: center ;
+  // align-items: flex-end ;
   justify-content: space-between;
+  // position: fixed;
+  width: 100%;
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  margin-left: 2%;
+  #logo_image {
+  height: 40px;
+  fill: white;
+}
 }
 
 /* User Avatar */
@@ -28,11 +36,14 @@
   align-items: center;
   justify-content: space-between;
 }
-
+;
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  i {
+    font-size: 30px;
+  }
 }
 
 /* Navbar link */
@@ -63,15 +74,41 @@
   background: transparent !important;
   color: black !important;
 }
-.navbar-wagon-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  right: 10px;
-  top: -6px;
+// .navbar-wagon-dropdown-menu:before {
+//   content: ' ';
+//   height: 10px;
+//   width: 10px;
+//   position: absolute;
+//   right: 10px;
+//   top: -6px;
+//   transform: rotate(45deg);
+//   border-left: 1px solid #E6E6E6;
+//   border-top: 1px solid #E6E6E6;
+// }
+
+#burger_menu{
+  fill: white;
+  height: 40px;
+  color: white;
+}
+
+.avatar-square {
+  border-radius: 50%;
+  height: 30px !important;
+  width: 30px !important;
+}
+.avatar-init {
   background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: black;
+  font-weight: lighter;
+  border: 1px solid;
+  border-radius: 50%;
+  text-align: center;
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
