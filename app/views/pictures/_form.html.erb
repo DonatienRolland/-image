@@ -1,0 +1,30 @@
+<div class="row">
+  <%= simple_form_for @picture do |f| %>
+    <div class="col-lg-7">
+
+
+
+        <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
+        <span class="btn btn-default btn-file">
+          Upload <%= f.file_field :photo, id: "photo-upload" %>
+
+        </span>
+        <%= f.hidden_field :photo_cache %>
+
+
+
+    </div>
+    <div class="col-lg-5">
+        <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
+        <%= f.input :title %>
+        <%= f.input :hauteur %>
+        <%= f.input :rotation %>
+
+    </div>
+    <% if f.object.photo? %>
+      <%= link_to 'Supprimer' %>
+    <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
+

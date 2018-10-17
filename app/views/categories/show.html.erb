@@ -1,20 +1,25 @@
 
-  <% @category.albums.each do |ablum| %>
+<% @category.albums.each do |album| %>
 
-    <%= ablum.title %>
-    <br>
-
-
-
+  <%= album.title %>
+  <br>
+  <%= link_to 'Ajouter une photo', new_category_picture_path(@category, query: album.id ) %>
+  <br>
+  <% album.pictures.each do |picture| %>
+    <!-- <#%= cl_image_path picture.photo.url %> <br> -->
+    <%=  link_to edit_picture_path(picture) do %>
+      <%= cl_image_tag picture.photo, height: 300, width: 400, crop: :fill %> <br>
+    <% end %>
   <% end %>
+<% end %>
 
 
 
 <h2>Ajouter un album</h2>
 
 <%= simple_form_for @category do |f| %>
-    <%= f.object.title %>
-  <%= f.simple_fields_for :albums do |u| %>
+  <%= f.object.title %>
+  <%= f.simple_fields_for :albums, @album do |u| %>
     <%= u.input :title %>
   <% end %>
   <%= f.submit %>

@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
-    @category.albums.build
+    @album = Album.new
   end
 
 
@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
 
   def category_param
     params.require(:category).permit(
-      albums_attributes: [:id, :title ]
+      albums_attributes: [ :id, :title ]
     )
   end
 end
