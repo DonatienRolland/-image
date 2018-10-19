@@ -35,6 +35,12 @@
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
+            <% @categories.each do |category| %>
+              <li><%= link_to category.title, category_path(category) %> </li>
+              <% category.albums.each do |album| %>
+                <li><%= link_to album.title, album_path(title: album.title_no_space) %> </li>
+              <% end %>
+            <% end %>
             <li>
               <%= link_to "#" do %>
                 <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>

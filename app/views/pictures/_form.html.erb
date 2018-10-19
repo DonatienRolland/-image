@@ -1,30 +1,49 @@
 <div class="row">
   <%= simple_form_for @picture do |f| %>
     <div class="col-lg-7">
+      <% if f.object.photo? %>
+        <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
 
+        </div>
+      <% else %>
+        <div id="img_prev"></div>
+      <% end %>
+      <!-- <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/> -->
+      <span class="btn btn-default btn-file">
+        Upload <%= f.file_field :photo, id: "photo-upload" %>
 
-
-        <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/>
-        <span class="btn btn-default btn-file">
-          Upload <%= f.file_field :photo, id: "photo-upload" %>
-
-        </span>
-        <%= f.hidden_field :photo_cache %>
-
-
-
+      </span>
+      <%= f.hidden_field :photo_cache %>
     </div>
     <div class="col-lg-5">
-        <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
-        <%= f.input :title %>
-        <%= f.input :hauteur %>
-        <%= f.input :rotation %>
-
+      <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
+      <%= f.input :title %>
+      <%= f.input :hauteur %>
+      <%= f.input :rotation, input_html: { step: 90 }, as: :hidden %>
+      <div class="rotation btn" data-rotation="negative">
+        <i class="fas fa-undo"></i>
+      </div>
+      <div class="rotation btn" data-rotation="positive">
+        <i class="fas fa-redo"></i>
+      </div>
     </div>
     <% if f.object.photo? %>
-      <%= link_to 'Supprimer' %>
+      <%= link_to "Supprimer", picture_path(f.object),
+      method: :delete,
+      data: { confirm: "Es tu sur?" } %>
     <% end %>
     <%= f.submit %>
   <% end %>
+
+
 </div>
 
+<style>
+  #img_prev{
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>

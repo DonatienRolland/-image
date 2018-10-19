@@ -1,0 +1,17 @@
+<% @album.pictures.each do |picture| %>
+
+  <div class="card"style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' ); height: <%=picture.hauteur %>px">
+
+  </div>
+  <%= picture.title %>
+<% end %>
+
+
+
+<style>
+  .card{
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
