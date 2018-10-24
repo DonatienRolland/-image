@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :albums, only: [ :show ]
   end
 
+  get '/:title' => "categories#presentation", as: :categories
   get 'albums/:title' => "albums#show", as: :album
 
   resources :pictures, only: [ :edit, :create, :update, :destroy ]

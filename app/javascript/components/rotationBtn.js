@@ -12,8 +12,14 @@ function rotationBtn(){
     rotation.addEventListener('click', function(){
       if (this.dataset.rotation == "positive") {
         count++
+        if (count > 3) {
+          count = 0
+        }
       } else {
         count--
+        if (count < -3) {
+          count = 0
+        }
       }
       var rotate = 90 * count
       var total_rotate = parseInt(rotate) + parseInt(origin);

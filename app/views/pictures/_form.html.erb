@@ -19,7 +19,7 @@
       <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
       <%= f.input :title %>
       <%= f.input :hauteur %>
-      <%= f.input :rotation, input_html: { step: 90 }, as: :hidden %>
+      <%= f.input :rotation, input_html: { value: f.object.rotation || 0 } %>
       <div class="rotation btn" data-rotation="negative">
         <i class="fas fa-undo"></i>
       </div>

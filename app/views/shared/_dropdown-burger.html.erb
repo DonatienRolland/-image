@@ -1,0 +1,14 @@
+<div class="navbar-wagon-item">
+  <div class="dropdown">
+    <%= render 'shared/burger_icon' %>
+    <ul class="dropdown-menu-burger dropdown-menu-right">
+      <% @categories.each do |category| %>
+        <!-- <li><#%= link_to category.title, category_path(category) %> </li> -->
+        <li><%= link_to category.title, categories_path(title: category.title_no_space) %> </li>
+        <% category.albums.each do |album| %>
+          <li><%= link_to album.title, album_path(title: album.title_no_space) %> </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>

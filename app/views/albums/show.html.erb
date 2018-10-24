@@ -1,17 +1,20 @@
-<% @album.pictures.each do |picture| %>
+<div class="container-all-dimension">
+    <% @album.pictures.each do |picture| %>
+      <div class="card"style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
+       <%= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%=picture.hauteur%>px; background-position:<%= picture.align_with_the_rotation %>">
+      </div>
+      <%= picture.title %>
+      <%= picture.rotation %>
+      <%= picture.rotation_vertical? %>
+      <%= picture.hauteur %>,
+      id: <%= picture.id %>
+    <% end %>
 
-  <div class="card"style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' ); height: <%=picture.hauteur %>px">
-
-  </div>
-  <%= picture.title %>
-<% end %>
-
-
+</div>
 
 <style>
   .card{
     background-size: contain !important;
     background-repeat: no-repeat;
-    background-position: center;
   }
 </style>

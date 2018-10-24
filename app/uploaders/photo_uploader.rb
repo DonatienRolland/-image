@@ -3,11 +3,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
     process eager: true
     process convert: 'jpg'
-    process :resize_to_fill => [nil, 350, :north]
-
-  # version :thumbnail do
-  #   resize_to_fit(50, 50)
-  # end
+    process :resize_to_fill => [nil, 900, :north]
 
 end
 

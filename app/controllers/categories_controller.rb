@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:presentation]
+
   def show
     @category = Category.find(params[:id])
     @album = Album.new
@@ -14,6 +16,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def presentation
+    @category = Category.where(title: params[:title].gsub("_", ' ')).first
+  end
+
 
   def category_param
     params.require(:category).permit(
@@ -21,3 +27,4 @@ class CategoriesController < ApplicationController
     )
   end
 end
+

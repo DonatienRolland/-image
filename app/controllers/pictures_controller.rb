@@ -18,7 +18,6 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @category = @picture.album.category
     if @picture.update(picture_params)
-      # TODO SAVE ROTATION IN CLOUDINARY
       redirect_to category_path(@category)
     else
       raise

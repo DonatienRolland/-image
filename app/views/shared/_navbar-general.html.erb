@@ -1,0 +1,12 @@
+
+<% if params[:controller] == "albums" %>
+  <%= render 'shared/navbar-black' %>
+<% elsif params[:controller] == "pages"  %>
+  <%= render 'shared/navbar-home' %>
+<% else %>
+  <%= render 'shared/navbar-black' %>
+<% end %>
+
+
+
+

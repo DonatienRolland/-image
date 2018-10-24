@@ -10,4 +10,11 @@ class Category < ApplicationRecord
     self.title.capitalize
   end
 
+  def title_no_space
+    self.title.gsub(" ", '_')
+  end
+  def title_with_space
+    self.title.gsub("_", ' ')
+  end
+
 end
