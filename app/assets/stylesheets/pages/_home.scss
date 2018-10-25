@@ -7,5 +7,21 @@ body {
 
 .container-all-dimension {
   padding: 0 12%;
-  padding-top: 15vh;
+  padding-top: 18vh !important;
+  padding-bottom: 5vh;
+}
+
+
+@media only screen and (max-width:700px) {
+  .container-all-dimension {
+    padding: 0 5%;
+    position: static;
+    width: 100vw;
+  }
+  .dropdown-menu-burger {
+    background-color: white;
+  }
+}
+.row {
+  margin: 0;
 }

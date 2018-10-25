@@ -2,7 +2,12 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= render 'shared/logo_icon' %>
   <% end %>
-
+  <% if user_signed_in? && params[:controller] == "categories" && params[:action] == "show" || params[:controller] == "pictures"%>
+    <div class="categroies-section">
+      <% @categories.each do |category| %>
+        <%= link_to category.title, category_path(category), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
+    </div>
+  <% end %>
   <%= render 'shared/dropdown-burger' %>
 </div>
-

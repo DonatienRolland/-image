@@ -1,5 +1,5 @@
 
-<% if params[:controller] == "albums" %>
+<% if params[:controller] == "albums" || params[:controller] == "categories" %>
   <%= render 'shared/navbar-black' %>
 <% elsif params[:controller] == "pages"  %>
   <%= render 'shared/navbar-home' %>
@@ -7,6 +7,14 @@
   <%= render 'shared/navbar-black' %>
 <% end %>
 
-
-
+<% if user_signed_in?  %>
+  <div class="edit-website">
+    <%= link_to category_path(Category.first) do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+      <i class="fas fa-sign-out-alt"></i>
+    <% end %>
+  </div>
+<% end %>
 

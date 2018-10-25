@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :categories, only: [ :show, :update ] do
     resources :pictures, only: [ :new ]
-    resources :albums, only: [ :show ]
+    resources :albums, only: [ :show, :destroy ]
   end
 
   get '/:title' => "categories#presentation", as: :categories

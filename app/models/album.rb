@@ -1,6 +1,6 @@
 class Album < ApplicationRecord
   belongs_to :category
-  has_many :pictures
+  has_many :pictures, dependent: :destroy
 
 
   def title_no_space
@@ -10,4 +10,9 @@ class Album < ApplicationRecord
     self.title.gsub("_", ' ')
   end
 
+  def has_pictures?
+    if self.picture_ids.count > 0
+      return true
+    end
+  end
 end

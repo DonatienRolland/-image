@@ -1,0 +1,53 @@
+#category-show {
+  a {
+    color: black;
+    font-style: italic;
+  }
+}
+
+.card{
+  // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  position: relative;
+}
+
+.card-description p {
+  color: black;
+  opacity: 0.7;
+}
+.picture-card {
+  height: 175px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-link {
+  position: absolute;
+  top: 6px;
+  bottom: 0;
+  right: 15px;
+  left: 15px;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link:hover {
+  opacity: 0.1;
+}
+
+
+.btn-action{
+  border-radius: 2px;
+  border: 2px solid black;
+  color: black;
+  margin-left: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px;
+  p {
+    border-bottom: 2px solid transparent;
+  }
+  p:hover {
+    border-bottom: 2px solid black;
+  }
+}

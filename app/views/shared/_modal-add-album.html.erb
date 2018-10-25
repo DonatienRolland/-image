@@ -1,0 +1,18 @@
+<!-- modal -->
+  <div class="modal  modal-space-1 row fade" id="newAlbumModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content col-sm-4 col-sm-offset-4" style="padding: 25px">
+      <a class="close cross abs-right-top" data-dismiss="modal" id="close" aria-label="Close">+</a>
+      <h4>Ajouter un nouvel album </h4>
+      <div style="width: 93%; padding-top: 20px;">
+      <%= simple_form_for category do |f| %>
+        <%= f.simple_fields_for :albums, album do |u| %>
+          <%= u.input :title, label: "Titre :" %>
+          <%= u.input :subtitle, as: :text, input_html: { rows: 3}, label: "Description :" %>
+        <% end %>
+        <div style="margin: auto; width: 34%;">
+          <%= f.submit "Ajouter l'album" %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>

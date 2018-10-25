@@ -6,15 +6,35 @@ $body-font: "Noto Sans JP", "sans-serif";
 $headers-font: "Noto Sans JP", "sans-serif";
 
 
-p {
-  font-size: 15px;
-  font-family: $body-font;
-}
+h1 {
+  font-size: 35px !important;
+  margin: 0px !important;
+  }
 h2 {
   font-size: 30px !important;
-  font-family: $body-font;
-}
+  margin: 0px !important;
+  }
 h3 {
   font-size: 25px !important;
-  font-family: $body-font;
+  margin: 0px !important;
+}
+h4 {
+  font-size: 21px !important;
+  margin: 0px !important;
+}
+p {
+  // font-size: 10px;
+  font-size: 14px;
+  margin: 0px !important;
+  }
+li {
+  font-size: 14px;
+  margin: 0px !important;
+}
+a {
+  font-size: 14px;
+  margin: 0px !important;
+}
+input {
+  font-size: 14px;
 }

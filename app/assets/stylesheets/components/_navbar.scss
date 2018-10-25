@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   padding: 0 5%;
-  z-index: 100;
+  z-index: 10;
 }
 
 .high-padding-navbar {
@@ -70,8 +70,9 @@
 .dropdown-menu-burger {
   position: absolute;
   top: 100%;
+  width: 156px;
   // left: 0;
-  z-index: 1000;
+  z-index: 100;
   display: none;
   float: left;
   list-style: none;
@@ -81,14 +82,12 @@
 }
 
 .open > .dropdown-menu-burger {
-    display: block;
+  display: block;
 }
 
 
 .navbar-wagon-dropdown-menu li > a, li {
   padding: 5px 0px;
-  font-size: 15px;
-  // font-weight: 600;
 }
 
 .navbar-wagon-dropdown-menu li > a:hover, li:hover {
@@ -110,12 +109,24 @@
   height: 35px;
   cursor: pointer;
 }
+.categroies-section a {
+  padding-left: 45px;
+}
 
-
-
-
-
-
+// edit btn
+.edit-website {
+  position: fixed;
+  z-index: 1001;
+  a {
+    text-decoration: none;
+  }
+  top: 5px;
+  right: 5px;
+  i {
+    color: red;
+    height: 35px;
+  }
+}
 
 
 // autre (laisser supprimer)

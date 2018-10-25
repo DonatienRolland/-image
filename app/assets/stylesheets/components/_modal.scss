@@ -1,0 +1,67 @@
+// Modal fullscreen
+.modal {
+  display: none;
+  overflow: none;
+  z-index: 2000 !important;
+  .active {
+    display: block !important;
+  }
+}
+
+// full screen
+.modal-space-1 {
+  padding: 10% 4%;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 2001;
+  background-color: white;
+  box-shadow: none;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  .rating {
+    margin-left: 31%;
+    height: 40px;
+  }
+}
+
+.cancel {
+  font-size: 25px !important;
+  opacity: 0.8;
+}
+.cancel:hover {
+  color: red;
+}
+.abs-right-top {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.cross {
+  width: 25px;
+  height: 25px;
+  font-size: 22px;
+  color: #2A2A2A;
+  border-radius: 50%;
+  border: 1px solid #E1E1E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+  transition: all 0.2s ease-in-out;
+  z-index: 100;
+  &:hover {
+    text-decoration: none;
+    border-color: #2A2A2A;
+  }
+}
+#close {
+  font-size: 27px !important;
+}

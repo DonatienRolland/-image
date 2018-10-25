@@ -1,64 +1,37 @@
-<h2><%= @category.title %></h2>
-<%= simple_form_for @category do |f| %>
-  <%= f.simple_fields_for :albums, @album do |u| %>
-    <%= u.input :title %>
-  <% end %>
-  <%= f.submit 'Ajouter un nouvelle album' %>
-<% end %>
+<%= render 'shared/modal-add-album', category: @category, album: @album %>
+<div class="container-all-dimension" style="padding-top: 25vh !important;" id="category-show">
 
-
-<% @category.albums.each do |album| %>
-
-  <%= album.title %>
   <div class="row">
-    <div class="col-lg-3 col-xs-12 col-sm-4">
-    <%= link_to 'Ajouter une photo', new_category_picture_path(@category, query: album.id ) %>
+    <button type="button" class="btn-action" data-toggle="modal" data-target="#newAlbumModal">
+      <p>Créer un album</p>
+    </button>
+  </div>
+
+  <% @category.albums.each do |album| %>
+    <hr>
+    <div style="margin: 15px;">
+      <%= album.title %>
+      <%= link_to "- Supprimer", category_album_path(@category, album),
+        method: :delete,
+        data: { confirm: "Es tu sur?" }, class:"delete-album" %>
     </div>
-    <% album.pictures.each do |picture| %>
-      <div class="col-lg-3 col-xs-12 col-sm-4">
-        <div class="card" style="background-image: url('<%= cl_image_path picture.photo %>' )">
+
+    <div class="row">
+      <% album.pictures.order('created_at ASC').each do |picture| %>
+        <div class="col-lg-3 col-xs-12 col-sm-4 card">
+          <div class="picture-card" style="background-image: url('<%= cl_image_path picture.photo %>' )">
+          </div>
           <div class="card-description">
             <p><%= picture.title %></p>
           </div>
           <%= link_to '#', edit_picture_path(picture), class:"card-link" %>
         </div>
+      <% end %>
+
+      <div class="col-lg-3 col-xs-12 col-sm-4">
+        <%= link_to 'Ajouter une photo', new_category_picture_path(@category, query: album.id ) %>
       </div>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 
-
-<style>
-  .card{
-    height: 175px;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-    background-size: contain !important;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-    position: relative;
-  }
-  .card-description {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-  }
-  .card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-  .card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
-</style>
+</div>

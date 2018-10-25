@@ -1,25 +1,31 @@
-<div class="row">
+<div class="container-all-dimension row" style="padding-top: 30vh !important;">
   <%= simple_form_for @picture do |f| %>
-    <div class="col-lg-7">
-      <% if f.object.photo? %>
-        <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
+    <div class="col-lg-offset-1 col-sm-6">
+      <label for="photo-upload" class="upload-label">
+        <% if f.object.photo? %>
+          <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
 
-        </div>
-      <% else %>
-        <div id="img_prev"></div>
-      <% end %>
-      <!-- <img id="img_prev" width=300 height=300 src="#" alt="your image" class="img-thumbnail hidden"/> <br/> -->
-      <span class="btn btn-default btn-file">
+          </div>
+        <% else %>
+          <div id="img_prev">
+            <h4 style= "text-align: center; padding-top: 42%">Importe une image</h4>
+          </div>
+        <% end %>
+      </label>
+      <span class="btn btn-default btn-file hidden">
         Upload <%= f.file_field :photo, id: "photo-upload" %>
 
       </span>
       <%= f.hidden_field :photo_cache %>
     </div>
-    <div class="col-lg-5">
+    <div class="col-lg-5 select-album">
+      <%= f.label :album, required: false %>
       <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
-      <%= f.input :title %>
-      <%= f.input :hauteur %>
-      <%= f.input :rotation, input_html: { value: f.object.rotation || 0 } %>
+      <%= f.input :title, label: "Titre" %>
+      <%= f.input :hauteur, input_html: { value: f.object.hauteur || 450 } %>
+      <%= f.label :rotation, required: false %>
+      <br>
+      <%= f.input :rotation, input_html: { value: f.object.rotation || 0 }, as: :hidden %>
       <div class="rotation btn" data-rotation="negative">
         <i class="fas fa-undo"></i>
       </div>
@@ -27,23 +33,14 @@
         <i class="fas fa-redo"></i>
       </div>
     </div>
-    <% if f.object.photo? %>
-      <%= link_to "Supprimer", picture_path(f.object),
-      method: :delete,
-      data: { confirm: "Es tu sur?" } %>
-    <% end %>
-    <%= f.submit %>
+    <div class="btns-action">
+      <%= f.submit class:"btn-action" %>
+      <% if f.object.photo? %>
+        <%= link_to "Supprimer", picture_path(f.object),
+        method: :delete,
+        data: { confirm: "Es tu sur?" } %>
+      <% end %>
+    </div>
   <% end %>
 
-
 </div>
-
-<style>
-  #img_prev{
-    height: 400px;
-    width: 400px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-</style>
