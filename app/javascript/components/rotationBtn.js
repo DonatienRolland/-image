@@ -3,7 +3,7 @@ function rotationBtn(){
   const img = document.getElementById('img_prev')
   const rotationClasses = document.querySelectorAll('.rotation')
   var origin = 0
-  if (inputRotation.value != 0) {
+  if ( inputRotation != null && inputRotation.value != 0) {
     origin = inputRotation.value
     img.style.transform = "rotate("+ origin +"deg)";
   }

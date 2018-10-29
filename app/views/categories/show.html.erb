@@ -1,9 +1,9 @@
 <%= render 'shared/modal-add-album', category: @category, album: @album %>
-<div class="container-all-dimension" style="padding-top: 25vh !important;" id="category-show">
+<div class="container-all-dimension" style="padding-top: 9vh !important; padding-bottom: 3vh !important;" id="category-show">
 
   <div class="row">
     <button type="button" class="btn-action" data-toggle="modal" data-target="#newAlbumModal">
-      <p>Créer un album</p>
+      <p>Créer un nouvel album</p>
     </button>
   </div>
 
@@ -24,7 +24,7 @@
           <div class="card-description">
             <p><%= picture.title %></p>
           </div>
-          <%= link_to '#', edit_picture_path(picture), class:"card-link" %>
+          <%= link_to '#', edit_picture_path(picture, query: album.id ), class:"card-link" %>
         </div>
       <% end %>
 

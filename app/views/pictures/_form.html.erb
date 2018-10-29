@@ -1,4 +1,4 @@
-<div class="container-all-dimension row" style="padding-top: 30vh !important;">
+<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
   <%= simple_form_for @picture do |f| %>
     <div class="col-lg-offset-1 col-sm-6">
       <label for="photo-upload" class="upload-label">
@@ -8,12 +8,12 @@
           </div>
         <% else %>
           <div id="img_prev">
-            <h4 style= "text-align: center; padding-top: 42%">Importe une image</h4>
+            <h4 style= "text-align: center; padding-top: 42%">Importes une image</h4>
           </div>
         <% end %>
       </label>
       <span class="btn btn-default btn-file hidden">
-        Upload <%= f.file_field :photo, id: "photo-upload" %>
+        Upload <%= f.file_field :photo, id: "photo-upload", cloudinary: { transformation: { height: 900, crop: :limit } } %>
 
       </span>
       <%= f.hidden_field :photo_cache %>
@@ -34,11 +34,13 @@
       </div>
     </div>
     <div class="btns-action">
-      <%= f.submit class:"btn-action" %>
       <% if f.object.photo? %>
+        <%= f.submit "Modifier la photo", class:"btn-action" %>
         <%= link_to "Supprimer", picture_path(f.object),
         method: :delete,
         data: { confirm: "Es tu sur?" } %>
+      <% else %>
+        <%= f.submit "Publier la photo", class:"btn-action" %>
       <% end %>
     </div>
   <% end %>

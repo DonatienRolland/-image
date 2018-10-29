@@ -1,6 +1,5 @@
 import "bootstrap";
 
-
 import { rotationBtn } from "../components/rotationBtn";
 rotationBtn();
 
@@ -12,3 +11,15 @@ rotationImage();
 
 import { revealModal } from "../components/modal";
 revealModal();
+
+import { getWidth } from "../components/egalWidth";
+getWidth();
+
+import { unrightClcik } from "../components/rightClick";
+unrightClcik();
+
+import { getClicked } from "../components/getClicked";
+getClicked();
+
+import { copyUrl } from "../components/copyUrl";
+copyUrl();

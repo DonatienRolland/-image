@@ -7,6 +7,7 @@
   width: 100%;
   padding: 0 5%;
   z-index: 10;
+  top: 0;
 }
 
 .high-padding-navbar {
@@ -35,9 +36,9 @@
     a {
       color: white;
     }
-  }
-  .navbar-wagon-dropdown-menu li > a:hover, li:hover {
-    border-bottom: 2px solid white;
+    a:hover {
+      border-bottom: 1px solid white;
+    }
   }
 }
 
@@ -61,8 +62,15 @@
     a {
       color: black;
     }
+    a:hover {
+      border-bottom: 1px solid black;
+    }
   }
-  .navbar-wagon-dropdown-menu li > a:hover, li:hover {
+}
+
+.active-tab {
+    border-bottom: 1px solid black;
+  a {
     border-bottom: 1px solid black;
   }
 }
@@ -88,10 +96,13 @@
 
 .navbar-wagon-dropdown-menu li > a, li {
   padding: 5px 0px;
+  display: block;
+  padding-bottom: 1px;
+  text-decoration: none;
 }
 
 .navbar-wagon-dropdown-menu li > a:hover, li:hover {
-  display:inline-block;
+  display: block;
   padding-bottom: 1px;
   text-decoration: none;
 }
@@ -110,7 +121,7 @@
   cursor: pointer;
 }
 .categroies-section a {
-  padding-left: 45px;
+  margin-left: 45px !important;
 }
 
 // edit btn

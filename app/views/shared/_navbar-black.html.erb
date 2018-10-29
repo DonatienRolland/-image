@@ -4,10 +4,12 @@
   <% end %>
   <% if user_signed_in? && params[:controller] == "categories" && params[:action] == "show" || params[:controller] == "pictures"%>
     <div class="categroies-section">
-      <% @categories.each do |category| %>
-        <%= link_to category.title, category_path(category), class: "navbar-wagon-item navbar-wagon-link" %>
+      <% @categories.order('created_at ASC').each do |category| %>
+        <%= link_to category.title, category_path(category), class: "navbar-wagon-item navbar-wagon-link #{ params[:id].to_i ==  category.id ? 'active-tab' : ''} " %>
       <% end %>
     </div>
   <% end %>
   <%= render 'shared/dropdown-burger' %>
 </div>
+
+

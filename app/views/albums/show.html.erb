@@ -1,4 +1,23 @@
 <div class="container-all-dimension">
+  <% if @album.title == "Encadrement" %>
+    <div class="row add-max-width">
+      <% @pictures.each do |picture| %>
+        <% if @album.subtitle.present? && @pictures.first == picture %>
+          <div class="first-title-album">
+            <p><%= @album.subtitle %></p>
+          </div>
+        <% end %>
+        <div class="picture-show col-sm-6">
+          <div class="div-picture-background ">
+            <%= cl_image_tag picture.photo, style:"height: #{picture.hauteur}px", class:"get-width pictureProtected" %>
+          </div>
+          <div class="title-picture">
+            <p style="font-size: 12px"> <%= picture.title %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
     <% @pictures.each do |picture| %>
     <% if @album.subtitle.present? && @pictures.first == picture %>
       <div class="first-title-album">
@@ -6,7 +25,7 @@
       </div>
     <% end %>
     <div class="picture-show">
-      <div class="div-picture-background "style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
+      <div class="div-picture-background pictureProtected" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
        <%= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%=picture.hauteur%>px; background-position:<%= picture.align_with_the_rotation %>">
       </div>
       <div class="title-picture">
@@ -14,6 +33,6 @@
       </div>
     </div>
     <% end %>
-
+  <% end %>
 </div>
 
