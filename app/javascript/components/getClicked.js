@@ -5,6 +5,7 @@ function getClicked(){
   const container = document.querySelector('.container-all-dimension')
   const navbar = document.querySelector('.navbar-wagon-position')
   const intro = document.querySelector('.intro-category')
+  const banner = document.querySelector('.banner')
   const pictures = document.querySelectorAll('.pictureProtected')
   if (dropdown.style.display == "") {
     moussOver(burger, dropdown)
@@ -28,6 +29,9 @@ function getClicked(){
         dropdown.style.display = "none";
     }
     if (event.target == intro ) {
+        dropdown.style.display = "none";
+    }
+    if (event.target == banner ) {
         dropdown.style.display = "none";
     }
     pictures.forEach((picture) => {
