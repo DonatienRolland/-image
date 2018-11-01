@@ -11,7 +11,7 @@ class Album < ApplicationRecord
   end
 
   def has_pictures?
-    if self.picture_ids.count > 0
+    if self.picture_ids.count > 0 && self.pictures.where(visible: true).count > 0
       return true
     end
   end

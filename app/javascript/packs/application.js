@@ -23,3 +23,9 @@ getClicked();
 
 import { copyUrl } from "../components/copyUrl";
 copyUrl();
+
+import { sortCard } from "../components/pictures.js";
+sortCard();
+
+import { clickOnSubmit } from "../components/checkVisiblePicture.js";
+clickOnSubmit();

@@ -1,0 +1,41 @@
+
+<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
+  <%= simple_form_for @user do |f| %>
+    <div class="col-lg-offset-1 col-sm-6">
+      <label for="photo-upload" class="upload-label">
+        <% if f.object.photo? %>
+          <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
+
+          </div>
+        <% else %>
+          <div id="img_prev">
+            <h4 style= "text-align: center; padding-top: 42%">Importes une image</h4>
+          </div>
+        <% end %>
+      </label>
+      <span class="btn btn-default btn-file hidden">
+        <%= f.file_field :photo, id: "photo-upload" %>
+
+      </span>
+      <%= f.hidden_field :photo_cache %>
+      <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
+    </div>
+
+    <div class="col-lg-5 select-album">
+      <%= f.input :intro, label: "Introduction :", :input_html => { :rows => 4, class:"size-text" } %>
+      <%= f.input :motto, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
+      <%= f.input :thanks, label: "Remerciements :", :input_html => { :rows => 4, class:"size-text" } %>
+      <%= f.input :visible, label: "Rendre visible cet onglet" %>
+    </div>
+    <div class="btns-action">
+      <%= link_to 'Retour', 'javascript:history.back()' %>
+      <%= f.submit "Visualiser", class:"btn-action gray-background" %>
+      <% if f.object.photo? %>
+        <%= f.submit "Modifier l'auteure", class:"btn-action" %>
+      <% else %>
+        <%= f.submit "Publier l'auteure", class:"btn-action" %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

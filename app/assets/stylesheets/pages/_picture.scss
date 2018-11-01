@@ -11,3 +11,18 @@
 .picture-show {
   padding: 3vh 0;
 }
+
+
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  color: red;
+}
+
+
+.black-icon {
+  color: black;
+}
+
+.gray-icon {
+  color: lightgray;
+}

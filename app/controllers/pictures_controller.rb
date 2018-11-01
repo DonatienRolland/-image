@@ -8,9 +8,14 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     @category = @picture.album.category
     if @picture.save
-      redirect_to category_path(@category)
+      if params[:commit] == "Visualiser"
+        redirect_to album_path(@picture.album.title_no_space, query: "Visualiser", query2: @picture, queryUpdate:"true")
+      else
+        redirect_to category_path(@category), notice: "Tu viens d'ajouter une nouvelle photo dans l'album: #{@picture.album.title}"
+      end
     else
-      raise
+      flash.now[:alert] = "Il me manque des informations (#{alerte_create_picture})"
+      render :new
     end
   end
 
@@ -18,7 +23,13 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @category = @picture.album.category
     if @picture.update(picture_params)
-      redirect_to category_path(@category)
+      if params[:commit] == "Visualiser"
+        redirect_to album_path(@picture.album.title_no_space, query: "Visualiser", query2: @picture, queryUpdate:"true")
+      elsif params[:query] == "checking-visibility"
+        redirect_to category_path(@category, anchor: "album_#{@picture.album.id}")
+      else
+        redirect_to category_path(@category)
+      end
     else
       raise
     end
@@ -36,8 +47,13 @@ class PicturesController < ApplicationController
     @category = @picture.album.category
   end
 
-  def de
-
+  def alerte_create_picture
+    if params[:picture][:title] == "" || params[:picture][:title] == nil
+      title = nil
+    else
+      title = params[:picture][:title]
+    end
+    "#{ params[:picture][:photo].nil? ? "une photo" : ""} #{ params[:picture][:photo].nil? && title.nil? ? "/" : ""} #{ title.nil? ? "une titre" : ""}"
   end
 
   def picture_rotation
@@ -45,6 +61,6 @@ class PicturesController < ApplicationController
   end
 
   def picture_params
-    params.require(:picture).permit(:photo, :title, :hauteur, :rotation, :album_id)
+    params.require(:picture).permit(:photo, :title, :hauteur, :rotation, :album_id, :visible)
   end
 end

@@ -9,20 +9,54 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
+
     if @category.update(category_param)
+      if params[:commit] == "Visualiser"
+        redirect_to categories_title_path(title: @category.title_no_space, query: "Visualiser", query2: @category, queryUpdate:"true")
+      else
+        redirect_to category_path(@category)
+      end
+    else
+      redirect_to category_path(@category)
+    end
+  end
+
+  def create
+    @category = Category.new(category_param)
+    if @category.save
       redirect_to category_path(@category)
     else
       redirect_to category_path(@category)
     end
   end
 
+  def new
+    @category = Category.new
+  end
+
+  def edit
+    @category = Category.find(params[:id])
+  end
+
   def presentation
     @category = Category.where(title: params[:title].gsub("_", ' ')).first
   end
 
+ def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to category_path(Category.first)
+  end
+  # def sort
+  #   params[:picture].each_with_index do |id, index|
+  #       Picture.where(id: id).update_all(position: index + 1)
+  #   end
+  # end
+
 
   def category_param
     params.require(:category).permit(
+      :title, :description, :subtitle, :visible,
       albums_attributes: [ :id, :title, :subtitle ]
     )
   end

@@ -1,0 +1,17 @@
+
+<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
+  <%= simple_form_for @album do |f| %>
+    <%= f.input :title, label: "Titre :" %>
+    <%= f.input :category_id, :input_html =>{value: params[:category_id].present? ?params[:category_id].to_i : @album.category.id, class:"hidden"}, label: false %>
+    <%= f.input :subtitle, label: "Sous titre :" %>
+    <div class="btns-action">
+      <%= link_to 'Retour', 'javascript:history.back()' %>
+      <% if f.object.id == nil %>
+        <%= f.submit "Créer l'album", class:"btn-action" %>
+      <% else %>
+        <%= f.submit "Modifier l'album", class:"btn-action" %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

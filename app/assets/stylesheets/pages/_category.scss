@@ -34,8 +34,21 @@
 .card-link:hover {
   opacity: 0.1;
 }
+.edit-visibility {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  i {
+    cursor: pointer;
+  }
+}
 
-
+.gray-background {
+  background-color: lightgrey;
+  padding: 5px 13px !important;
+}
 .btn-action{
   border-radius: 2px;
   border: 2px solid black;
@@ -51,7 +64,29 @@
     border-bottom: 2px solid black;
   }
 }
+
+.btn-red {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border: 2px solid red;
+  padding: 10px 20px;
+  border-radius: 2px;
+  a {
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+  }
+}
 .no-margin {
   margin: 0;
 }
+.size-text{
+  font-size: 12px;
+}
 
+.align-text-padding {
+  text-align: center;
+  padding-bottom: 5vh;
+  font-style: italic;
+}

@@ -22,7 +22,16 @@
 }
 
 
+.pink-background {
+  background-color: $pink;
+}
 
+.display-center {
+  display: flex;
+  align-items: center;
+  height: 85vh;
+
+}
 
 #photo-auteur {
   height: 500px;

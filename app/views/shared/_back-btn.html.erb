@@ -1,0 +1,16 @@
+<div class="btn-red">
+  <% if params[:queryUpdate] == "true" %>
+    <% if params[:controller] == "categories" %>
+      <% category = Category.find(params[:query2]) %>
+      <%= link_to 'Retour', edit_category_path(category ) %>
+    <% elsif params[:controller] == "pages" %>
+      <% user = User.find(params[:query2]) %>
+      <%= link_to 'Retour', edit_user_path(user) %>
+    <% else %>
+      <% picture = Picture.find(params[:query2]) %>
+      <%= link_to 'Retour', edit_picture_path(picture, query: picture.album.id ) %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Retour', 'javascript:history.back()' %>
+  <% end %>
+</div>

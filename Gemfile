@@ -37,3 +37,13 @@ gem 'carrierwave'
 
 
 gem "cocoon"
+
+
+# sortable
+gem 'jquery-ui-rails'
+gem 'acts_as_list'
+gem 'jquery-rails'
+
+
+gem 'turbolinks', '~> 5.0.0'
+

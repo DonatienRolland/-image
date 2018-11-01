@@ -1,8 +1,12 @@
 
 <% if params[:controller] == "albums" || params[:controller] == "categories" %>
   <%= render 'shared/navbar-black' %>
-<% elsif params[:controller] == "pages"  %>
-  <%= render 'shared/navbar-home' %>
+<% elsif params[:controller] == "pages" %>
+  <% if params[:action] == "auteure" || params[:action] == "mentionslegales" %>
+    <%= render 'shared/navbar-black' %>
+  <% else %>
+    <%= render 'shared/navbar-home' %>
+  <% end %>
 <% else %>
   <%= render 'shared/navbar-black' %>
 <% end %>
@@ -17,4 +21,3 @@
     <% end %>
   </div>
 <% end %>
-

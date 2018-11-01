@@ -1,0 +1,22 @@
+
+<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
+  <%= simple_form_for @category do |f| %>
+    <%= f.input :title, label: "Titre :" %>
+    <%= f.input :subtitle, label: "Sous titre :" %>
+    <%= f.input :description, :input_html => { :rows => 15, class:"size-text" }, label: "Desciption :", placeholder: "
+    Si tu n'ajoutes pas de description, l'onglet n'apparaitera pas pour les visiteurs. " %>
+    <div class="btns-action">
+      <%= link_to 'Retour', 'javascript:history.back()' %>
+      <%= f.submit "Visualiser", class:"btn-action gray-background" %>
+      <% if f.object.id == nil %>
+        <%= f.submit "Créer la categorie", class:"btn-action" %>
+      <% else %>
+        <%= f.submit "Modifier la categorie", class:"btn-action" %>
+        <%= link_to "Supprimer", category_path(f.object),
+        method: :delete,
+        data: { confirm: "Es tu sur?" } %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

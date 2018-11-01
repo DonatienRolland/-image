@@ -1,3 +1,4 @@
+
 <div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
   <%= simple_form_for @picture do |f| %>
     <div class="col-lg-offset-1 col-sm-6">
@@ -13,16 +14,16 @@
         <% end %>
       </label>
       <span class="btn btn-default btn-file hidden">
-        Upload <%= f.file_field :photo, id: "photo-upload", cloudinary: { transformation: { height: 900, crop: :limit } } %>
+        <%= f.file_field :photo, id: "photo-upload" %>
 
       </span>
       <%= f.hidden_field :photo_cache %>
     </div>
     <div class="col-lg-5 select-album">
       <%= f.label :album, required: false %>
-      <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query]) %>
+      <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query].present? ? params[:query] : params[:picture][:album_id]) %>
       <%= f.input :title, label: "Titre" %>
-      <%= f.input :hauteur, input_html: { value: f.object.hauteur || 450 } %>
+      <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
       <%= f.label :rotation, required: false %>
       <br>
       <%= f.input :rotation, input_html: { value: f.object.rotation || 0 }, as: :hidden %>
@@ -34,6 +35,8 @@
       </div>
     </div>
     <div class="btns-action">
+      <%= link_to 'Retour', 'javascript:history.back()' %>
+      <%= f.submit "Visualiser", class:"btn-action gray-background" %>
       <% if f.object.photo? %>
         <%= f.submit "Modifier la photo", class:"btn-action" %>
         <%= link_to "Supprimer", picture_path(f.object),
