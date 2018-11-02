@@ -18,7 +18,9 @@
 
         <% end %>
       <% end %>
-      <li><%= link_to "L'auteure", auteure_path %> </li>
+      <% if !@auteur.nil? %>
+        <li><%= link_to "L'auteure", auteure_path %> </li>
+      <% end %>
       <li><%= link_to "Mentions Légales", mentionslegales_path %> </li>
     </ul>
   </div>

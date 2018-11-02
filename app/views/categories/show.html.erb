@@ -1,19 +1,16 @@
 <!-- <#%= render 'shared/modal-add-album', category: @category, album: @album %> -->
 <div class="container-all-dimension" style="padding-top: 2vh !important; padding-bottom: 3vh !important;" id="category-show">
     <p class="align-text-padding size-text"> <%= @category.visible? ? "Cette categorie est visible, décoches si tu ne veux plus qu'elle soit publique. " : "Coches si tu veux rendre publique cette categorie. " %>
-    <label for="input_<%= @category.id %>" style="padding-left: 10px; cursor: pointer;">
+    <label for="input_category_<%= @category.id %>" style="padding-left: 10px; cursor: pointer;">
       <i class="fas fa-check-circle check-icon-visibility <%= @category.visible ? "black-icon" : "gray-icon" %>"></i>
     </label></p>
   <%= simple_form_for @category, url: category_path(@category, query: "checking-visibility") do |f| %>
-    <%= f.input :visible, :input_html => { class:"checking-visibility hidden", data: { targetId: "edit_category_#{f.object.id}"}, id:"input_#{f.object.id}"}, label: false %>
+    <%= f.input :visible, :input_html => { class:"checking-visibility hidden", data: { targetId: "edit_category_#{f.object.id}"}, id:"input_category_#{f.object.id}"}, label: false %>
   <% end %>
 
 
   <div style="display: flex; justify-content: space-around;">
     <%= link_to 'Créer un nouvel album', new_category_album_path(@category), class:"btn-action" %>
-    <!-- <button type="button" class="btn-action" data-toggle="modal" data-target="#newAlbumModal">
-      <p>Créer un nouvel album</p>
-    </button> -->
     <%= link_to 'Modifier cette categorie', edit_category_path(@category) %>
   </div>
 
@@ -35,10 +32,10 @@
           <div class="card-description" style="position:relative;">
             <p style="padding-right: 20px; height: 50px;"><%= truncate(picture.title, :length => 50) %></p>
             <%= simple_form_for picture, url: picture_path( picture, query: "checking-visibility"), html: {class:"edit-visibility"} do |f| %>
-              <label for="input_<%= f.object.id %>">
+              <label for="input_picture_<%= f.object.id %>">
                 <i class="fas fa-check-circle check-icon-visibility <%= f.object.visible ? "black-icon" : "gray-icon" %>"></i>
               </label>
-              <%= f.input :visible, :input_html => { class:"checking-visibility hidden", data: { targetId: "edit_picture_#{f.object.id}"}, id:"input_#{f.object.id}"}, label: false %>
+              <%= f.input :visible, :input_html => { class:"checking-visibility hidden", data: { targetId: "edit_picture_#{f.object.id}"}, id:"input_picture_#{f.object.id}"}, label: false %>
             <% end %>
           </div>
           <%= link_to '#', edit_picture_path(picture, query: album.id ), class:"card-link" %>

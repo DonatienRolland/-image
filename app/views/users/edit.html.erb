@@ -1,44 +1,48 @@
 
 <div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
-  <%= simple_form_for @user do |f| %>
-    <div class="col-lg-offset-1 col-sm-6">
-      <label for="photo-upload" class="upload-label">
-        <% if f.object.photo? %>
-          <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
+  <% if @user.nil? %>
+    <h2 style="text-align: center;">Désolé un utilisateur doit d'abord être désigné comme Auteur(e) du site</h2>
+  <% else %>
+    <%= simple_form_for @user do |f| %>
+      <div class="col-lg-offset-1 col-sm-6">
+        <label for="photo-upload" class="upload-label">
+          <% if f.object.photo? %>
+            <div id="img_prev" style="background-image: url('<%= cl_image_path f.object.photo %>' )">
 
+            </div>
+          <% else %>
+            <div id="img_prev">
+              <h4 style= "text-align: center; padding-top: 42%">Importes une image</h4>
+            </div>
+          <% end %>
+        </label>
+        <span class="btn btn-default btn-file hidden">
+          <%= f.file_field :photo, id: "photo-upload" %>
+
+        </span>
+        <%= f.hidden_field :photo_cache %>
+        <div class="row">
+          <div class="col-sm-8" style="padding-left: 0px;">
+            <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
           </div>
-        <% else %>
-          <div id="img_prev">
-            <h4 style= "text-align: center; padding-top: 42%">Importes une image</h4>
+          <div class="col-sm-4">
+            <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
           </div>
-        <% end %>
-      </label>
-      <span class="btn btn-default btn-file hidden">
-        <%= f.file_field :photo, id: "photo-upload" %>
 
-      </span>
-      <%= f.hidden_field :photo_cache %>
-      <div class="row">
-        <div class="col-sm-8" style="padding-left: 0px;">
-          <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
         </div>
-        <div class="col-sm-4">
-          <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
-        </div>
-
       </div>
-    </div>
 
-    <div class="col-sm-6 col-lg-5 select-album">
-      <%= f.input :intro, label: "Introduction :", :input_html => { :rows => 4, class:"size-text" } %>
-      <%= f.input :motto, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
-      <%= f.input :thanks, label: "Remerciements :", :input_html => { :rows => 4, class:"size-text" } %>
-    </div>
-    <div class="btns-action">
-      <%= link_to 'Retour', 'javascript:history.back()' %>
-      <%= f.submit "Visualiser", class:"btn-action gray-background" %>
-      <%= f.submit "Publier l'auteure", class:"btn-action" %>
-    </div>
+      <div class="col-sm-6 col-lg-5 select-album">
+        <%= f.input :intro, label: "Introduction :", :input_html => { :rows => 4, class:"size-text" } %>
+        <%= f.input :motto, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
+        <%= f.input :thanks, label: "Remerciements :", :input_html => { :rows => 4, class:"size-text" } %>
+      </div>
+      <div class="btns-action">
+        <%= link_to 'Retour', 'javascript:history.back()' %>
+        <%= f.submit "Visualiser", class:"btn-action gray-background" %>
+        <%= f.submit "Publier l'auteure", class:"btn-action" %>
+      </div>
+    <% end %>
   <% end %>
 
 </div>

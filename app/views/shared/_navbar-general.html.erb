@@ -13,8 +13,14 @@
 
 <% if user_signed_in?  %>
   <div class="edit-website">
-    <%= link_to category_path(Category.first) do %>
-      <i class="far fa-edit"></i>
+    <% if Category.all.count > 0 %>
+      <%= link_to category_path(Category.first) do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_category_path do %>
+        <i class="far fa-edit"></i>
+      <% end %>
     <% end %>
     <%= link_to destroy_user_session_path, method: :delete do %>
       <i class="fas fa-sign-out-alt"></i>

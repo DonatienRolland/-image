@@ -9,7 +9,6 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-
     if @category.update(category_param)
       if params[:commit] == "Visualiser"
         redirect_to categories_title_path(title: @category.title_no_space, query: "Visualiser", query2: @category, queryUpdate:"true")
@@ -24,7 +23,11 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_param)
     if @category.save
-      redirect_to category_path(@category)
+      if params[:commit] == "Visualiser"
+        redirect_to categories_title_path(title: @category.title_no_space, query: "Visualiser", query2: @category, queryUpdate:"true")
+      else
+        redirect_to category_path(@category)
+      end
     else
       redirect_to category_path(@category)
     end
