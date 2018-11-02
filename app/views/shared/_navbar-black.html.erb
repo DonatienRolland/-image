@@ -8,7 +8,7 @@
       <% @categories.order('created_at ASC').each do |category| %>
         <%= link_to category.title, category_path(category), class: "navbar-wagon-item navbar-wagon-link #{ params[:id].to_i ==  category.id ? 'active-tab' : ''} " %>
       <% end %>
-      <%= link_to 'Ajouter une catégorie', new_category_path, class:"navbar-wagon-item navbar-wagon-link #{ params[:action] == "new" ? 'active-tab' : ''}"  %>
+      <%= link_to 'Ajouter une catégorie', new_category_path, class:"navbar-wagon-item navbar-wagon-link #{ params[:controller] == "categories" && params[:action] == "new" ? 'active-tab' : ''}"  %>
       <%= link_to "L'auteure", edit_user_path(current_user), class:"navbar-wagon-item navbar-wagon-link #{ params[:controller] == "users" ? 'active-tab' : ''}"  %>
     </div>
   <% end %>

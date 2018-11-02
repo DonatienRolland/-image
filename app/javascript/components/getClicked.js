@@ -1,6 +1,6 @@
 function getClicked(){
   const burger = document.getElementById('burger-menu-clicked')
-  const body = document.getElementById('test-body')
+  const body = document.getElementById('body')
   const dropdown = document.querySelector('.dropdown-menu-burger')
   const container = document.querySelector('.container-all-dimension')
   const navbar = document.querySelector('.navbar-wagon-position')
