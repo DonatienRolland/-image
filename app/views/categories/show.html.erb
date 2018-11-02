@@ -26,11 +26,11 @@
 
     <div class="row" data-behavior='sortable' id="pictures" data-url="<%= sort_category_pictures_path(@category) %>">
       <% album.pictures.order('created_at ASC').each do |picture| %>
-        <div class="col-lg-3 col-xs-12 col-sm-4 card" id="<%= dom_id(picture) %>">
+        <div class="col-lg-3 col-xs-12 col-sm-4 card eql-height" id="<%= dom_id(picture) %>" style="margin-bottom: 20px;">
           <div class="picture-card" style="background-image: url('<%= cl_image_path picture.photo %>' )">
           </div>
           <div class="card-description" style="position:relative;">
-            <p style="padding-right: 20px; height: 50px;"><%= truncate(picture.title, :length => 50) %></p>
+            <p style="padding-right: 20px; margin-bottom: 7px !important;"><%= truncate(picture.title, :length => 50) %></p>
             <%= simple_form_for picture, url: picture_path( picture, query: "checking-visibility"), html: {class:"edit-visibility"} do |f| %>
               <label for="input_picture_<%= f.object.id %>">
                 <i class="fas fa-check-circle check-icon-visibility <%= f.object.visible ? "black-icon" : "gray-icon" %>"></i>
@@ -42,8 +42,10 @@
         </div>
       <% end %>
 
-      <div class="col-lg-3 col-xs-12 col-sm-4">
-        <%= link_to 'Ajouter une photo', new_category_picture_path(@category, query: album.id ) %>
+      <div class="col-lg-3 col-xs-12 col-sm-4 upload-label eql-height" style="margin-bottom: 20px;" >
+        <%= link_to new_category_picture_path(@category, query: album.id ), class:"padding-center" do %>
+        <p class="padding-center">Ajouter une photo</p>
+        <% end %>
       </div>
     </div>
   <% end %>
