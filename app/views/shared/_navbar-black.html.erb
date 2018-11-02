@@ -2,16 +2,17 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= render 'shared/logo_icon' %>
   <% end %>
-  <% if user_signed_in? && params[:controller] == "categories" && params[:action] == "show" || params[:controller] == "pictures" || params[:controller] == "categories" && params[:action] == "edit" || params[:controller] == "categories" && params[:action] == "new"|| params[:controller] == "users" %>
 
+  <% if user_signed_in? && params[:action] != "presentation" && params[:controller] != "pages" && params[:title].nil? %>
     <div class="categroies-section">
       <% @categories.order('created_at ASC').each do |category| %>
         <%= link_to category.title, category_path(category), class: "navbar-wagon-item navbar-wagon-link #{ params[:id].to_i ==  category.id ? 'active-tab' : ''} " %>
       <% end %>
-      <%= link_to 'Ajouter une catégorie', new_category_path, class:"navbar-wagon-item navbar-wagon-link #{ @category.id == nil ? 'active-tab' : ''}"  %>
-      <%= link_to "L'auteure", edit_user_path, class:"navbar-wagon-item navbar-wagon-link"  %>
+      <%= link_to 'Ajouter une catégorie', new_category_path, class:"navbar-wagon-item navbar-wagon-link #{ params[:action] == "new" ? 'active-tab' : ''}"  %>
+      <%= link_to "L'auteure", edit_user_path(current_user), class:"navbar-wagon-item navbar-wagon-link #{ params[:controller] == "users" ? 'active-tab' : ''}"  %>
     </div>
   <% end %>
+
   <%= render 'shared/dropdown-burger' %>
 </div>
 

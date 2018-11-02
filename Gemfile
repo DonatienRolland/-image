@@ -45,5 +45,5 @@ gem 'acts_as_list'
 gem 'jquery-rails'
 
 
-gem 'turbolinks', '~> 5.0.0'
-
+# versioning model
+gem "audited", "~> 4.7"

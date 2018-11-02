@@ -7,10 +7,12 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @category = Category.find(params[:category_id])
   end
 
   def edit
     @album = Album.find(params[:id])
+    @category = @album.category
   end
 
   def create

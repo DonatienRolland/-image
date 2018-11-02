@@ -18,23 +18,26 @@
 
       </span>
       <%= f.hidden_field :photo_cache %>
-      <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
+      <div class="row">
+        <div class="col-sm-8" style="padding-left: 0px;">
+          <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
+        </div>
+        <div class="col-sm-4">
+          <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
+        </div>
+
+      </div>
     </div>
 
-    <div class="col-lg-5 select-album">
+    <div class="col-sm-6 col-lg-5 select-album">
       <%= f.input :intro, label: "Introduction :", :input_html => { :rows => 4, class:"size-text" } %>
       <%= f.input :motto, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
       <%= f.input :thanks, label: "Remerciements :", :input_html => { :rows => 4, class:"size-text" } %>
-      <%= f.input :visible, label: "Rendre visible cet onglet" %>
     </div>
     <div class="btns-action">
       <%= link_to 'Retour', 'javascript:history.back()' %>
       <%= f.submit "Visualiser", class:"btn-action gray-background" %>
-      <% if f.object.photo? %>
-        <%= f.submit "Modifier l'auteure", class:"btn-action" %>
-      <% else %>
-        <%= f.submit "Publier l'auteure", class:"btn-action" %>
-      <% end %>
+      <%= f.submit "Publier l'auteure", class:"btn-action" %>
     </div>
   <% end %>
 
