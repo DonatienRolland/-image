@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def edit
-    @user = current_user
+    @user = User.where(auteur: true).first
     @category = Category.new
   end
 
 
   def update
-    @user = current_user
+    @user = User.where(auteur: true).first
     if params[:commit] == "Visualiser"
       @user.visible = false
       @user.update_attributes!(user_params_without_visibility_params)

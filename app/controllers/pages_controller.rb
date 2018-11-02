@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :auteure]
+  skip_before_action :authenticate_user!, only: [:home, :auteure, :mentionslegales]
 
   def home
-    @category = Category.new
+    # @category = Category.new
   end
   def auteure
     @category = Category.new
@@ -23,6 +23,9 @@ class PagesController < ApplicationController
     else
       @auteur = validated.last
     end
-    # raise
+  end
+
+  def mentionslegales
+
   end
 end
