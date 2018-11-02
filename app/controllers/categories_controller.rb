@@ -59,7 +59,7 @@ class CategoriesController < ApplicationController
 
   def category_param
     params.require(:category).permit(
-      :title, :description, :subtitle, :visible,
+      :title, :description, :subtitle, :visible, :article_title,
       albums_attributes: [ :id, :title, :subtitle ]
     )
   end

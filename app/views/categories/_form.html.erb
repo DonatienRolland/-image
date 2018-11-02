@@ -1,9 +1,10 @@
 
-<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
+<div class="container-all-dimension row" style="padding-top: 7vh !important; padding-bottom: 3vh !important;">
   <%= simple_form_for @category do |f| %>
     <%= f.input :title, label: "Titre :" %>
+    <%= f.input :article_title, label: "Titre de l'article :" %>
     <%= f.input :subtitle, label: "Sous titre :" %>
-    <%= f.input :description, :input_html => { :rows => 15, class:"size-text" }, label: "Desciption :", placeholder: "
+    <%= f.input :description, :input_html => { :rows => 12, class:"size-text" }, label: "Desciption :", placeholder: "
     Si tu n'ajoutes pas de description, l'onglet n'apparaitera pas pour les visiteurs. " %>
     <div class="btns-action">
       <%= link_to 'Retour', 'javascript:history.back()' %>
