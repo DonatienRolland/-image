@@ -16,11 +16,27 @@ function getWidth(){
 export { getWidth }
 
 
-$( document ).ready(function() {
-    var heights = $(".eql-height").map(function() {
-        return $(this).height();
-    }).get(),
 
-    maxHeight = Math.max.apply(null, heights);
-    $(".eql-height").height(maxHeight);
-});
+
+function sameHeight(){
+  const albums = document.querySelectorAll('.GetDataJs')
+
+  albums.forEach((album) => {
+    let speAlbum = "." + album.dataset.target
+    $( document ).ready(function() {
+        var heights = $(speAlbum).map(function() {
+            return $(this).height();
+        }).get(), maxHeight = Math.max.apply(null, heights);
+        if (heights.length < 2) {
+          let minHeight = "177px";
+          $(speAlbum).height(minHeight);
+        } else {
+          $(speAlbum).height(maxHeight);
+        }
+
+    });
+
+  })
+}
+
+export { sameHeight }

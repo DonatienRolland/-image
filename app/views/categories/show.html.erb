@@ -24,10 +24,10 @@
         data: { confirm: "Es tu sur?" }, class:"delete-album" %>
     </div>
 
-    <div class="row" data-behavior='sortable' id="pictures" data-url="<%= sort_category_pictures_path(@category) %>">
+    <div class="row GetDataJs" id="pictures" data-target="eql-height_<%= album.title_no_space %>">
       <% album.pictures.order('created_at ASC').each do |picture| %>
-        <div class="col-lg-3 col-xs-12 col-sm-4 card eql-height" id="<%= dom_id(picture) %>" style="margin-bottom: 20px;">
-          <div class="picture-card" style="background-image: url('<%= cl_image_path picture.photo %>' )">
+        <div class="col-lg-3 col-xs-12 col-sm-4 card" id="<%= dom_id(picture) %>" style="margin-bottom: 20px;">
+          <div class="picture-card eql-height_<%= album.title_no_space %>" style="background-image: url('<%= cl_image_path picture.photo %>' )">
           </div>
           <div class="card-description" style="position:relative;">
             <p style="padding-right: 20px; margin-bottom: 7px !important;"><%= truncate(picture.title, :length => 50) %></p>
@@ -42,7 +42,7 @@
         </div>
       <% end %>
 
-      <div class="col-lg-3 col-xs-12 col-sm-4 upload-label eql-height" style="margin-bottom: 20px;" >
+      <div class="col-lg-3 col-xs-12 col-sm-4 upload-label eql-height_<%= album.title_no_space %>" style="margin-bottom: 20px;" >
         <%= link_to new_category_picture_path(@category, query: album.id ), class:"padding-center" do %>
         <p class="padding-center">Ajouter une photo</p>
         <% end %>

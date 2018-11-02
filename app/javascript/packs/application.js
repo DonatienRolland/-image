@@ -12,8 +12,9 @@ rotationImage();
 import { revealModal } from "../components/modal";
 revealModal();
 
-import { getWidth } from "../components/egalWidth";
+import { getWidth, sameHeight } from "../components/egalWidth";
 getWidth();
+sameHeight();
 
 import { unrightClcik } from "../components/rightClick";
 unrightClcik();
