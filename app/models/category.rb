@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   before_save :capitalize_title
 
-  has_many :albums
+  has_many :albums, dependent: :destroy
   has_many :pictures, through: :albums
   accepts_nested_attributes_for :albums
 

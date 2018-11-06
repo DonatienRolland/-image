@@ -18,10 +18,14 @@
 
         <% end %>
       <% end %>
-      <% if !@auteur.nil? %>
-        <li><%= link_to "L'auteure", auteure_path %> </li>
-      <% end %>
-      <li><%= link_to "Mentions Légales", mentionslegales_path %> </li>
+      <div class="margin-by-category">
+        <% if !@auteur.nil? %>
+          <li><%= link_to "L'auteure", auteure_path %> </li>
+        <% end %>
+      </div>
+      <div class="margin-by-category">
+        <li><%= link_to "Mentions Légales", mentionslegales_path %> </li>
+      </div>
     </ul>
   </div>
 </div>

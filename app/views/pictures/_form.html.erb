@@ -9,7 +9,7 @@
           </div>
         <% else %>
           <div id="img_prev">
-            <h4 style= "text-align: center; padding-top: 42%">Importes une image</h4>
+            <h4 style= "text-align: center; padding-top: 42%">Importe une image</h4>
           </div>
         <% end %>
       </label>
@@ -38,7 +38,7 @@
       <%= link_to 'Retour', 'javascript:history.back()' %>
       <%= f.submit "Visualiser", class:"btn-action gray-background" %>
       <% if f.object.photo? %>
-        <%= f.submit "Modifier la photo", class:"btn-action" %>
+        <%= f.submit "Enregistrer la photo", class:"btn-action" %>
         <%= link_to "Supprimer", picture_path(f.object),
         method: :delete,
         data: { confirm: "Es tu sur?" } %>
