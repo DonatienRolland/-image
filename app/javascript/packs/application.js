@@ -1,4 +1,5 @@
 import "bootstrap";
+import "../components/analytics";
 
 import { rotationBtn } from "../components/rotationBtn";
 rotationBtn();
