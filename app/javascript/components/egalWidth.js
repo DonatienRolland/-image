@@ -6,7 +6,6 @@ function getWidth(){
   let count = 80
   elems.forEach((elem) => {
     count += elem.offsetWidth
-    console.log(count)
   })
   if (bigWitdh != null) {
     bigWitdh.style.width = count + "px";
@@ -14,7 +13,6 @@ function getWidth(){
 }
 
 export { getWidth }
-
 
 
 
