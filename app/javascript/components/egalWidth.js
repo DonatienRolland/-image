@@ -18,7 +18,6 @@ if (document.readyState !== 'loading') {
   getWidth()
 }
 
-
 function sameHeight(){
   const albums = document.querySelectorAll('.GetDataJs')
 
@@ -41,3 +40,8 @@ function sameHeight(){
 }
 
 export { sameHeight }
+
+
+$(document).ready(function() {
+  getWidth();
+})
