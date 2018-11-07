@@ -14,6 +14,9 @@ function getWidth(){
 
 export { getWidth }
 
+if (document.readyState !== 'loading') {
+  getWidth()
+}
 
 
 function sameHeight(){
