@@ -15,7 +15,7 @@
   <% if params[:action] == "home" %>
     <div id="absolute-right">
       <%= link_to root_path do%>
-      Site réalisé avec &#128149; par Donatien
+      Site réalisé avec <i class="far fa-heart"></i> par Donatien
       <% end %>
     </div>
   <% end %>
@@ -25,7 +25,7 @@
 
 
 
-<div class="hidden">
+<div style="opacity: 0; z-index: -2; position: absolute; left: 0; bottom: 0;">
   <input type="text" value="<%= url_for(:only_path => false) %>" id="myInput">
 </div>
 
