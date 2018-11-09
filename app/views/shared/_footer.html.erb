@@ -1,16 +1,27 @@
 <div id="footer">
   <div class="links-contact">
+    <%= link_to mentionslegales_path do %>
+      <i class="far fa-copyright"></i>
+    <% end %>
     <%= link_to 'https://www.instagram.com/hellolaterre_cr/?hl=fr', target: "_blank" do %>
       <i class="fab fa-instagram"></i>
-    <% end %>
-    <% if  %>
-
     <% end %>
     <%= mail_to "chloe@rollandmail.com" do %>
       <i class="far fa-envelope"></i>
     <% end %>
-    <%= link_to "http://localhost:3000/Vos_commandes", class:"" do %>
+    <%= link_to root_path do %>
       <i class="far fa-share-square"></i>
     <% end %>
+  <% if params[:action] == "home" %>
+    <div id="absolute-right">
+      <%= link_to root_path do%>
+      Site réalisé avec &#128149; par Donatien
+      <% end %>
+    </div>
+  <% end %>
   </div>
 </div>
+
+
+
+
