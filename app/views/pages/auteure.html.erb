@@ -3,13 +3,12 @@
     <div id="auteur-presentation" style="display: flex;">
       <div class="div-picture-background">
         <%= cl_image_tag @auteur.photo, style:"height:#{@auteur.hauteur}px;" %>
-        <p style="margin-top: 20px !important; font-size: 13px"><%= @auteur.description %>/p>
+        <p style="margin-top: 20px !important; font-size: 13px"><%= @auteur.description %> </p>
       </div>
       <div class="texts-auteur" style="margin-left: 30px">
         <p style="width: 120px;"><%= @auteur.intro %></p>
           <br>
         <p style="margin-left: 20% !important;width: 120px;"><%= @auteur.motto %></p> <br>
-
 
         <p style="margin-left: 40% !important;width: 130px;"><%= @auteur.thanks %></p>
       </div>
@@ -19,3 +18,14 @@
 
 
 <%= render 'shared/footer', category: @category %>
+
+
+
+<script>
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
+}
+</script>
