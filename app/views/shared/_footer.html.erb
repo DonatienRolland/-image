@@ -1,7 +1,7 @@
 <div id="footer">
   <div class="links-contact">
-    <%= link_to mentionslegales_path do %>
-      <i class="far fa-copyright"></i>
+    <%= link_to mentionslegales_path, id:"mini-icon" do %>
+      <i class="far fa-copyright" style="font-size: 23px;"></i>
     <% end %>
     <%= link_to 'https://www.instagram.com/hellolaterre_cr/?hl=fr', target: "_blank" do %>
       <i class="fab fa-instagram"></i>
@@ -10,7 +10,7 @@
       <i class="far fa-envelope"></i>
     <% end %>
     <%= link_to "#", onclick: "myFunction()" do %>
-      <i class="far fa-share-square"></i>
+      <i class="far fa-share-square" style="font-size: 23px;"></i>
     <% end %>
   <% if params[:action] == "home" %>
     <div id="absolute-right">
