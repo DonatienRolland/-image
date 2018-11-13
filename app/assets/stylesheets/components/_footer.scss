@@ -17,8 +17,18 @@
   }
   a:hover {
     font-size: 25px;
-    text-decoration: none;
+    // text-decoration: none;
   }
+  .dropdown-toggle i {
+    color: black;
+    font-size: 14px;
+  }
+  .dropdown-toggle i:hover {
+    font-size: 25px;
+  }
+}
+.dropup {
+  padding: 8px;
 }
 
 #footer-white {
@@ -28,22 +38,103 @@
   }
   a:hover {
     font-size: 30px;
-    text-decoration: none;
+    // text-decoration: none;
+  }
+  .dropdown-toggle i {
+    color: white;
+    font-size: 23px;
+
+  }
+  .dropdown-toggle i:hover {
+    font-size: 30px;
+
+  }
+  .dropdown-menu p {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .dropdown-menu a {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
 
-#absolute-right {
+
+
+#absolute-left {
   position: absolute;
-  right: 5%;
+  left: 5%;
   bottom: 20px;
+  display: flex;
+  align-items: center;
   a {
     font-size: 10px;
     font-weight: 600;
-    text-decoration: none;
+    // text-decoration: none;
   }
   a:hover {
     font-size: 11px;
     font-weight: 600;
-    text-decoration: none;
+    // text-decoration: none;
   }
+  p {
+    font-size: 10px;
+    color: white;
+    font-weight: 600;
+    // text-decoration: none;
+  }
+  p:hover {
+    font-size: 11px;
+    font-weight: 600;
+    // text-decoration: none;
+  }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 366px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 18px;
+    text-align: left;
+    background-color: #fff0;
+    border: 0px;
+    border: 0px;
+    border-radius: 2px;
+    box-shadow: none !important;
+    background-clip: padding-box;
+    a:hover {
+    font-size: 14px;
+    }
+    a {padding: 0 8px;}
+    p {
+      padding: 0 8px;
+    }
+    p:hover {
+      text-decoration: underline;
+    }
+    i {
+      padding-right: 3px;
+      width: 17px;
+    }
+}
+
+#footer-white .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+    top: 0%;
+}
+
+
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+    top: -6%;
+    bottom: 0;
+    margin-bottom: 0px;
+    left: 100%;
 }

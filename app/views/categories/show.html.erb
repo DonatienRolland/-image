@@ -14,7 +14,7 @@
     <%= link_to 'Modifier cette categorie', edit_category_path(@category) %>
   </div>
 
-  <% @category.albums.each do |album| %>
+  <% @category.albums.order('created_at ASC').each do |album| %>
     <hr>
     <div style="margin: 15px;" id="album_<%= album.id %>">
       <%= album.title %>

@@ -39,6 +39,7 @@ gem 'carrierwave'
 gem "cocoon"
 
 
+# orgonize categories
 # sortable
 gem 'jquery-ui-rails'
 gem 'acts_as_list'

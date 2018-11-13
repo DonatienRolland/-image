@@ -1,12 +1,12 @@
 <div class="container-all-dimension">
 
     <div id="auteur-presentation" style="display: flex;">
-      <div class="div-picture-background">
+      <div class="div-picture-background" style="margin-top: 3%">
         <%= cl_image_tag @auteur.photo, style:"height:#{@auteur.hauteur}px;" %>
-        <p style="margin-top: 20px !important; font-size: 13px"><%= @auteur.description %> </p>
+        <p style="margin-top: 20px !important; font-size: 10px"><%= @auteur.description %> </p>
       </div>
-      <div class="texts-auteur" style="margin-left: 30px">
-        <p style="width: 120px;"><%= @auteur.intro %></p>
+      <div class="texts-auteur" style="margin-left: 10%">
+        <p style="width: 122px;"><%= @auteur.intro %></p>
           <br>
         <p style="margin-left: 20% !important;width: 120px;"><%= @auteur.motto %></p> <br>
 

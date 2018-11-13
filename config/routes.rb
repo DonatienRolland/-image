@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'users/registrations'
+      }
+
   root to: 'pages#home'
   get '/auteure', to: "pages#auteure", as: 'auteure'
   get '/mentionslegales', to: "pages#mentionslegales", as: 'mentionslegales'
   resources :categories, only: [ :show, :create, :edit, :update, :new, :destroy ] do
+    collection do
+      patch :sort
+    end
     resources :pictures, only: [ :new ] do
-      collection do
-        patch :sort
-      end
     end
     resources :albums, only: [ :new ]
   end

@@ -12,6 +12,8 @@ class CategoriesController < ApplicationController
     if @category.update(category_param)
       if params[:commit] == "Visualiser"
         redirect_to categories_title_path(title: @category.title_no_space, query: "Visualiser", query2: @category, queryUpdate:"true")
+      elsif params[:commit]== 'Nouvelle position'
+        redirect_to edit_user_registration_path
       else
         redirect_to category_path(@category)
       end
@@ -59,7 +61,7 @@ class CategoriesController < ApplicationController
 
   def category_param
     params.require(:category).permit(
-      :title, :description, :subtitle, :visible, :article_title,
+      :title, :description, :subtitle, :visible, :article_title, :position,
       albums_attributes: [ :id, :title, :subtitle ]
     )
   end

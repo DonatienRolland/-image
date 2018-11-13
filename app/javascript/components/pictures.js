@@ -2,7 +2,16 @@ import Sortable from 'sortablejs' ;
 
 
 function sortCard() {
-  // const cardContainer = document.getElementById('pictures');
+  const cardContainer = document.getElementById('categories');
+    // console.log(cardContainer)
+
+    // cardContainer.sortable({
+    //   update:function(e,ui){
+    //     console.log($(this).sortable('serialize'))
+    //   }
+    // })
+
+
   // var sortable = new Sortable(cardContainer, {
   // onUpdate: function(e, ui) {
   //   var item = e.item;
@@ -11,10 +20,13 @@ function sortCard() {
   //     Rails.ajax({
   //       url: $(this).data("url"),
   //       type: "PATCH",
-  //       data: this.sortable('serialize'),
+  //       data: $(this).sortable('serialize'),
   //     });
   //   }
   // })
-}
-export { sortCard }
 
+}
+
+
+
+export { sortCard }

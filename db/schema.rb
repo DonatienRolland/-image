@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_044116) do
+ActiveRecord::Schema.define(version: 2018_11_09_114301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_044116) do
     t.string "subtitle"
     t.boolean "visible"
     t.string "article_title"
+    t.integer "position"
   end
 
   create_table "pictures", force: :cascade do |t|
