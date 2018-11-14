@@ -1,5 +1,8 @@
 <div class="container-all-dimension">
-  <% if @album.title == "Encadrement" %>
+  <% if  %>
+
+  <% end %>
+  <% if @album.title == "Privées" %>
     <div class="row add-max-width">
       <% @pictures.each do |picture| %>
         <% if @album.subtitle.present? && @pictures.first == picture %>
@@ -23,7 +26,10 @@
   <% else %>
     <% @pictures.each do |picture| %>
       <% if @album.subtitle.present? && @pictures.first == picture %>
-        <div class="first-title-album">
+        <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 15vh': ''; %>">
+          <p><%= @album.subtitle %></p>
+        </div>
+        <div class="first-title-album hidden-xs">
           <p><%= @album.subtitle %></p>
         </div>
       <% end %>
