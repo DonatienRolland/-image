@@ -26,10 +26,10 @@
       <div class="dropdown-menu">
         <!-- Dropdown menu links -->
         <div class="direction-share-links">
-          <p onclick="myFunction()" style="cursor: pointer;"><i class="fas fa-link"></i> Copier le lien</p>
-          <a href="mailto:?&amp;body=<%= url_for(:only_path => false) %>&amp;"><i class="far fa-envelope"></i> Envoyer par mail</a>
+          <p onclick="myFunction()" style="cursor: pointer;"><i class="fas fa-link"></i> <span class="hidden-xs">Copier le lien</span></p>
+          <a href="mailto:?&amp;body=<%= url_for(:only_path => false) %>&amp;"><i class="far fa-envelope"></i><span class="hidden-xs"> Envoyer par mail</span></a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimage.herokuapp.com%2F&amp;src=sdkpreparse" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,left=,top=,screenX=,screenY=,width=300,height= 400');" target="_blank" title="Share This on Facebook">
-            <i class="fab fa-facebook-f"></i>Facebook
+            <i class="fab fa-facebook-f"></i><span class="hidden-xs">Facebook</span>
           </a>
         </div>
       </div>
@@ -40,7 +40,7 @@
 
 
 
-<div style="opacity: 0; z-index: -2; position: absolute; left: 0; bottom: 0;">
+<div style="position: absolute; left: 0; bottom: 0; display: none;">
   <input type="text" value="<%= url_for(:only_path => false) %>" id="myInput">
 </div>
 
