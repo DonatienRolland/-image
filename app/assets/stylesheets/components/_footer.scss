@@ -2,6 +2,9 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  .dropup {
+    padding: 8px;
+  }
 }
 
 
@@ -26,9 +29,6 @@
   .dropdown-toggle i:hover {
     font-size: 25px;
   }
-}
-.dropup {
-  padding: 8px;
 }
 
 #footer-white {
@@ -61,8 +61,19 @@
   }
 }
 
-
-
+.direction-share-links{
+  display:flex;
+  flex-direction: row;
+}
+@media only screen and (max-width: 700px) {
+  .direction-share-links{
+    display:flex;
+    flex-direction: column;
+  }
+  .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+    top: -80% !important;
+  }
+}
 #absolute-left {
   position: absolute;
   left: 5%;

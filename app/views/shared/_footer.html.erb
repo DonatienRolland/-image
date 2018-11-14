@@ -3,7 +3,7 @@
   <div class="links-contact">
     <% if params[:action] == "home" %>
 
-      <div id="absolute-left">
+      <div id="absolute-left" class="hidden-xs">
         <p  style="font-size: 10px;">Tous contenus <i class="far fa-copyright"></i> Chloé Rolland</p>
         <%= link_to root_path do%>
         Site internet <i class="far fa-heart" style="color:#EE5F5B; font-weight: 600;"></i> Donatien Rolland
@@ -25,7 +25,7 @@
       </div>
       <div class="dropdown-menu">
         <!-- Dropdown menu links -->
-        <div style="display: flex; flex-direction: row;">
+        <div class="direction-share-links">
           <p onclick="myFunction()" style="cursor: pointer;"><i class="fas fa-link"></i> Copier le lien</p>
           <a href="mailto:?&amp;body=<%= url_for(:only_path => false) %>&amp;"><i class="far fa-envelope"></i> Envoyer par mail</a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimage.herokuapp.com%2F&amp;src=sdkpreparse" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,left=,top=,screenX=,screenY=,width=300,height= 400');" target="_blank" title="Share This on Facebook">

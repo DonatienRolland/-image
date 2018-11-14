@@ -38,7 +38,7 @@
       color: white;
     }
     a:hover {
-      border-bottom: 1px solid white;
+      // border-bottom: 1px solid white;
     }
   }
 }
@@ -64,15 +64,17 @@
       color: black;
     }
     a:hover {
-      border-bottom: 1px solid black;
+      // border-bottom: 1px solid black;
     }
   }
 }
 
 .active-tab {
-    border-bottom: 1px solid black;
+    text-decoration: underline;
+    // border-bottom: 1px solid black;
   a {
-    border-bottom: 1px solid black;
+    text-decoration: underline;
+    // border-bottom: 1px solid black;
   }
 }
 
@@ -100,17 +102,17 @@
 .navbar-wagon-dropdown-menu li > a, li {
   display: block;
   padding-bottom: 2px;
-  text-decoration: none;
+  // text-decoration: none;
 }
 
 .navbar-wagon-dropdown-menu li > a:hover, li:hover {
   display: block;
   padding-bottom: 2px;
-  text-decoration: none;
+  // text-decoration: none;
 }
 
 .dropdown-menu-burger a:hover {
-  text-decoration: none;
+  // text-decoration: none;
 
 }
 
@@ -131,7 +133,7 @@
   position: fixed;
   z-index: 1001;
   a {
-    text-decoration: none;
+    // text-decoration: none;
   }
   top: 5px;
   right: 5px;
@@ -141,34 +143,6 @@
   }
 }
 
-
-// autre (laisser supprimer)
-.navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: #ffffff00;
-  transition: all 0.3s ease;
-  height: 70px;
-}
-
-/* Logo */
-
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-}
-
-/* Right section */
-.navbar-wagon-right {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-;
-/* Basic navbar item */
-
-
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
@@ -176,33 +150,10 @@
 }
 .navbar-wagon-link:hover {
   color: #da552f;
-  text-decoration: none;
+  // text-decoration: none;
 }
-
-/* Dropdown menu */
-// .navbar-wagon-dropdown-menu {
-//   margin-top: 15px;
-//   box-shadow: 1px 1px 4px #E6E6E6;
-//   border-color: #E6E6E6;
-// }
-
-// .avatar-square {
-//   border-radius: 50%;
-//   height: 30px !important;
-//   width: 30px !important;
-// }
-// .avatar-init {
-//   background-color: white;
-//   text-align: center;
-//   display: flex;
-//   justify-content: center;
-//   color: black;
-//   font-weight: lighter;
-//   border: 1px solid;
-//   border-radius: 50%;
-//   text-align: center;
-//   p {
-//     padding: 0;
-//     margin: 0;
-//   }
-// }
+@media only screen and (max-width: 700px) {
+  .dropdown-menu-burger {
+    background-color: #ffffff00 !important;
+  }
+}
