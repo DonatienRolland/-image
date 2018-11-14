@@ -7,33 +7,38 @@
             <p><%= @album.subtitle %></p>
           </div>
         <% end %>
-        <div class="picture-show col-sm-6" >
+        <div class="visible-xs">
+          <%= cl_image_tag picture.photo, style:"width:90vw; margin-bottom: 5vh;" %>
+        </div>
+        <div class="picture-show col-sm-6 hidden-xs" >
           <div class="div-picture-background ">
-            <%= cl_image_tag picture.photo, style:"height: #{picture.hauteur}px", class:"get-width pictureProtected" %>
+            <%= cl_image_tag picture.photo, style:"height: #{picture.hauteur}px", class:"get-width" %>
           </div>
           <div class="title-picture">
-            <p style="font-size: 12px"> <%= picture.title %></p>
+            <p class="p-picture"> <%= picture.title %></p>
           </div>
         </div>
       <% end %>
     </div>
   <% else %>
     <% @pictures.each do |picture| %>
-    <% if @album.subtitle.present? && @pictures.first == picture %>
-      <div class="first-title-album">
-        <p><%= @album.subtitle %></p>
+      <% if @album.subtitle.present? && @pictures.first == picture %>
+        <div class="first-title-album">
+          <p><%= @album.subtitle %></p>
+        </div>
+      <% end %>
+      <div class="picture-show">
+        <div class="visible-xs">
+          <%= cl_image_tag picture.photo, style:"width:90vw" %>
+        </div>
+        <div class="div-picture-background hidden-xs" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
+         <%= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%=picture.hauteur%>px; background-position:<%= picture.align_with_the_rotation %>">
+        </div>
+        <div class="title-picture">
+          <p class="p-picture"> <%= picture.title %></p>
+        </div>
       </div>
-    <% end %>
-    <div class="picture-show">
-      <div class="div-picture-background pictureProtected" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
-       <%= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%=picture.hauteur%>px; background-position:<%= picture.align_with_the_rotation %>">
-      </div>
-      <div class="title-picture">
-        <p style="font-size: 12px"> <%= picture.title %></p>
-      </div>
-    </div>
     <% end %>
   <% end %>
 </div>
-
 

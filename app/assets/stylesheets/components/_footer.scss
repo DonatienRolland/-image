@@ -71,7 +71,16 @@
     flex-direction: column;
   }
   .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
-    top: -80% !important;
+    top: -110% !important;
+    left: 130% !important;
+  }
+  .direction-share-links {
+    a {
+      padding-top: 10px !important;
+    }
+  }
+  .dropdown-menu i {
+    font-size: 20px !important;
   }
 }
 #absolute-left {
