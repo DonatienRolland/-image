@@ -1,11 +1,16 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:presentation]
 
+  skip_before_action :verify_authenticity_token, only: [:sort]
+
   def show
     @category = Category.find(params[:id])
     @album = Album.new
   end
 
+  def index
+    @categories = Category.order(:position)
+  end
 
   def update
     @category = Category.find(params[:id])
@@ -52,11 +57,13 @@ class CategoriesController < ApplicationController
     @category.destroy
     redirect_to category_path(Category.first)
   end
-  # def sort
-  #   params[:picture].each_with_index do |id, index|
-  #       Picture.where(id: id).update_all(position: index + 1)
-  #   end
-  # end
+
+  def sort
+    params[:params_value].each_with_index do |id, index|
+      Category.where(id: id.to_i).update_all(position: index + 1)
+    end
+    head :ok
+  end
 
 
   def category_param

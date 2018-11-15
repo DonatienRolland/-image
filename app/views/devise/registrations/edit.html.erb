@@ -33,25 +33,6 @@
     <%= link_to "Back", :back %>
   </div>
 
-  <div class="col-sm-5 col-sm-offset-1">
-    <h2>Modifier l'ordre du Burger</h2>
-
-
-    <div id="categories" class="list-group" data-url="<%= sort_categories_path %>">
-      <% @categories.order('position ASC').each do |category| %>
-        <%= link_to category.title, '#', id:dom_id(category) %>
-      <% end %>
-    </div>
-
-
-
-
-  </div>
 </div>
 
-<style>
-  .list-group {
-    display: flex;
-    flex-direction: column;
-  }
-</style>
+

@@ -1,0 +1,18 @@
+<div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
+  <div class="col-sm-offset-1 col-sm-5">
+
+      <h2>Modifier l'ordre du Burger</h2>
+
+
+      <div id="categories" class="list-group" data-url="<%= sort_categories_path %>">
+        <% @categories.order('position ASC').each do |category| %>
+          <%= link_to category.title, '#', id:dom_id(category), class:"category" %>
+        <% end %>
+      </div>
+</div>
+<style>
+  .list-group {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

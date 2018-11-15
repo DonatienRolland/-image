@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    @categories = Category.all
+    @categories = Category.order(:position)
   end
 
   # PUT /resource

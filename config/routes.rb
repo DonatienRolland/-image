@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/auteure', to: "pages#auteure", as: 'auteure'
   get '/mentionslegales', to: "pages#mentionslegales", as: 'mentionslegales'
-  resources :categories, only: [ :show, :create, :edit, :update, :new, :destroy ] do
+  resources :categories, only: [ :show, :create, :edit, :update, :new, :destroy, :index ] do
     collection do
       patch :sort
     end

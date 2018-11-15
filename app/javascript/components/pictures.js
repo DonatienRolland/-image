@@ -3,30 +3,29 @@ import Sortable from 'sortablejs' ;
 
 function sortCard() {
   const cardContainer = document.getElementById('categories');
-    // console.log(cardContainer)
+  var categories = cardContainer.querySelectorAll('.category')
 
-    // cardContainer.sortable({
-    //   update:function(e,ui){
-    //     console.log($(this).sortable('serialize'))
-    //   }
-    // })
-
-
-  // var sortable = new Sortable(cardContainer, {
-  // onUpdate: function(e, ui) {
-  //   var item = e.item;
-  //   console.log(new Array(e.target.children))
-  //   console.log(item)
-  //     Rails.ajax({
-  //       url: $(this).data("url"),
-  //       type: "PATCH",
-  //       data: $(this).sortable('serialize'),
-  //     });
-  //   }
-  // })
+  var sortable = new Sortable(cardContainer, {
+  onUpdate: function(e, ui) {
+    var newarray = []
+    categories.forEach(function (value, i) {
+    var categoryId = value.id.replace('category_', '')
+      newarray.push(categoryId)
+    });
+    $.ajax({
+      url: cardContainer.dataset.url,
+      type: "PATCH",
+      data: { params_value: newarray },
+      succes: function(data) {
+        console.log(data)
+      },
+    });
+    }
+  })
 
 }
 
 
 
 export { sortCard }
+
