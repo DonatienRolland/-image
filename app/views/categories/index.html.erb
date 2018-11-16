@@ -1,18 +1,23 @@
 <div class="container-all-dimension row" style="padding-top: 9vh !important; padding-bottom: 3vh !important;">
-  <div class="col-sm-offset-1 col-sm-5">
-
-      <h2>Modifier l'ordre du Burger</h2>
-
-
+      <div style="display: flex; justify-content: space-around; padding-bottom: 30px">
+        <%= link_to 'Ajouter une catégorie', new_category_path, class:"btn-action"  %>
+      </div>
       <div id="categories" class="list-group" data-url="<%= sort_categories_path %>">
-        <% @categories.order('position ASC').each do |category| %>
-          <%= link_to category.title, '#', id:dom_id(category), class:"category" %>
+        <% @categories.each do |category| %>
+          <div class="category-card" style="" id="<%= dom_id(category) %>">
+
+            <i class="fas fa-bars my-handle"></i>
+            <div id="category-grid">
+              <%= link_to category.title, category_path(category) %>
+              <%= link_to " - Modifier ", edit_category_path(category) %>
+            </div>
+            <div class="albums" style="" data-url="<%= sort_albums_path %>">
+              <% category.albums.each do |album| %>
+                <p class="album-card" id="<%= dom_id(album) %>" style=""><%= album.title %></p>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
 </div>
-<style>
-  .list-group {
-    display: flex;
-    flex-direction: column;
-  }
-</style>
+

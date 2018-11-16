@@ -22,7 +22,12 @@ Rails.application.routes.draw do
   resources :users, only: [ :edit, :update ]
 
   resources :pictures, only: [ :edit, :create, :update, :destroy ]
-  resources :albums, only: [ :edit, :create, :update, :destroy ]
+
+  resources :albums, only: [ :edit, :create, :update, :destroy ] do
+    collection do
+      patch :sort
+    end
+  end
 
 
   get "/404", to: "error#not_found"

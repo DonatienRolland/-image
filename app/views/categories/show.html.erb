@@ -26,7 +26,7 @@
 
     <div class="row GetDataJs" id="pictures" data-target="eql-height_<%= album.title_no_space %>">
       <% album.pictures.order('created_at ASC').each do |picture| %>
-        <div class="col-lg-3 col-xs-12 col-sm-4 card" id="<%= dom_id(picture) %>" style="margin-bottom: 20px;">
+        <div class="col-lg-3 col-xs-12 col-sm-4 card" style="margin-bottom: 20px;">
           <div class="picture-card eql-height_<%= album.title_no_space %>" style="background-image: url('<%= cl_image_path picture.photo %>' )">
           </div>
           <div class="card-description" style="position:relative;">

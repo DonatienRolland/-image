@@ -7,6 +7,9 @@ class Category < ApplicationRecord
 
   validates :title, presence: true
 
+  default_scope { order(position: :asc) }
+  # si on ne veut pas lutiliser mettre redorder la ou on veut sauter le par default_scope
+
   def capitalize_title
     self.title.capitalize
   end

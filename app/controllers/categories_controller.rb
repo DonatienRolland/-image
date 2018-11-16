@@ -60,7 +60,14 @@ class CategoriesController < ApplicationController
 
   def sort
     params[:params_value].each_with_index do |id, index|
-      Category.where(id: id.to_i).update_all(position: index + 1)
+      p "id:#{id} index:#{index} alors?"
+      cat = Category.where(id: id.to_i).first
+      p cat
+      if cat.update(position: index + 1)
+        p "c'est uploadé #{Category.where(id: id.to_i).first.position}"
+      else
+        p "ce n'est pas uploadé"
+      end
     end
     head :ok
   end

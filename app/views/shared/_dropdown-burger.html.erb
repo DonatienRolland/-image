@@ -2,13 +2,13 @@
   <div class="dropdown" id="burger-menu-clicked">
     <%= render 'shared/burger_icon' %>
     <ul class="dropdown-menu-burger dropdown-menu-right">
-      <% @categories.order('position ASC').order('created_at ASC').each do |category| %>
+      <% @categories.each do |category| %>
         <% if category.visible %>
           <div class="margin-by-category">
             <% if !category.with_description? %>
               <li><%= link_to category.title, categories_title_path(title: category.title_no_space), class:"#{'active-tab' if params[:title] ==  category.title_no_space} btns-burger" %> </li>
             <% end %>
-            <% category.albums.order('created_at ASC').each do |album| %>
+            <% category.albums.each do |album| %>
               <% if album.has_pictures? %>
                 <li><%= link_to album.title, album_path(title: album.title_no_space), class:"#{'active-tab' if params[:title] ==  album.title_no_space} btns-burger" %>
                  </li>
