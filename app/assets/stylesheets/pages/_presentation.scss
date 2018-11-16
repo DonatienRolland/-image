@@ -41,9 +41,21 @@
     width: 120px;
   }
 }
+
+#auteur-presentation {
+  display: flex;
+}
+
+
 @media only screen and (max-width: 700px) {
   .intro-category {
     width: 100% !important;
   }
+  #auteur-presentation {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 70px;
+  }
+
 
 }
