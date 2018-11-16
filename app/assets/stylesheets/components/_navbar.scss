@@ -154,7 +154,28 @@
   // text-decoration: none;
 }
 @media only screen and (max-width: 700px) {
-  .dropdown-menu-burger {
-    background-color: #ffffff00 !important;
+  .background-xs {
+    background-color: #ffffff !important;
+    background-color: #313131 !important;
+    margin: -20% -52%;
+    padding-right: 20px;
+    width: 190px;
+    height: 82vh;
+  }
+  #navbar_black {
+    .background-xs {
+      background-color: #ffffff !important;
+    }
+  }
+  #navbar_home {
+    .background-xs {
+      background-color: #313131 !important;
+    }
+  }
+  .navbar-wagon-dropdown-menu li > a, li {
+    padding-bottom: 10px;
+  }
+  .margin-by-category {
+    padding: 12px 0px;
   }
 }
