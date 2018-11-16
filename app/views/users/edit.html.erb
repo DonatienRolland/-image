@@ -23,7 +23,7 @@
         <%= f.hidden_field :photo_cache %>
         <div class="row">
           <div class="col-sm-8" style="padding-left: 0px;">
-            <%= f.input :description, :input_html => { :rows => 2, class:"size-text" } %>
+            <%= f.input :description, as: :text, :input_html => { :rows => 2, class:"size-text" } %>
           </div>
           <div class="col-sm-4">
             <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
@@ -34,7 +34,7 @@
 
       <div class="col-sm-6 col-lg-5 select-album">
         <%= f.input :intro, label: "Introduction :", :input_html => { :rows => 4, class:"size-text" } %>
-        <%= f.input :motto, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
+        <%= f.input :motto, as: :text, label: "Motto :", :input_html => { :rows => 2, class:"size-text" } %>
         <%= f.input :thanks, label: "Remerciements :", :input_html => { :rows => 4, class:"size-text" } %>
       </div>
       <div class="btns-action">

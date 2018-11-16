@@ -22,7 +22,7 @@
     <div class="col-lg-5 select-album">
       <%= f.label :album, required: false %>
       <%= f.select :album_id, options_for_select( Album.all.where(category: @category).collect {|p| [ p.title, p.id ] }, selected: params[:query].present? ? params[:query] : params[:picture][:album_id]) %>
-      <%= f.input :title, label: "Titre" %>
+      <%= f.input :title, as: :text, label: "Titre" %>
       <%= f.input :hauteur, input_html: { value: f.object.hauteur || 550 } %>
       <%= f.label :rotation, required: false %>
       <br>
