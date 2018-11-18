@@ -69,18 +69,25 @@
   .direction-share-links{
     display:flex;
     flex-direction: column;
+    a {
+      padding-top: 10px !important;
+    }
   }
   .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
     top: -110% !important;
     left: 130% !important;
   }
-  .direction-share-links {
-    a {
-      padding-top: 10px !important;
-    }
-  }
   .dropdown-menu i {
     font-size: 20px !important;
+  }
+  .links-contact i {
+    font-size: 14px;
+  }
+  #footer-white .dropdown-toggle i {
+    font-size: 14px;
+  }
+  #footer-white .dropup {
+    padding: 8px 8px 0px 8px;
   }
 }
 #absolute-left {

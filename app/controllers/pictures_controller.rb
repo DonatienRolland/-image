@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: [:sort]
   def new
     @picture = Picture.new
     @category = Category.find(params[:category_id])
@@ -54,6 +55,20 @@ class PicturesController < ApplicationController
       title = params[:picture][:title]
     end
     "#{ params[:picture][:photo].nil? ? "une photo" : ""} #{ params[:picture][:photo].nil? && title.nil? ? "/" : ""} #{ title.nil? ? "une titre" : ""}"
+  end
+
+  def sort
+    params[:params_value].each_with_index do |id, index|
+      p "id:#{id} index:#{index} alors?"
+      picture = Picture.find(id)
+      p picture
+      if picture.update(position: index + 1)
+        p "c'est uploadé #{Picture.where(id: id.to_i).first.position}"
+      else
+        p "ce n'est pas uploadé"
+      end
+    end
+    # head :ok
   end
 
   def picture_rotation

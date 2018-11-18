@@ -3,6 +3,9 @@ class Picture < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates :photo, presence: true
 
+  default_scope { order(position: :asc) }
+
+  acts_as_list scope: :album
 
   def rotation_vertical?
     if self.rotation == 90 || self.rotation == 270

@@ -4,18 +4,26 @@ import Sortable from 'sortablejs' ;
 function sortCard() {
   const categoryContainer = document.getElementById('categories');
   const albumContainers = document.querySelectorAll('.albums');
+  const pictureContainers = document.querySelectorAll('.pictures');
   if (albumContainers != null) {
     albumContainers.forEach((albumContainer) => {
-      albumContainer.addEventListener('click', function(){
+      albumContainer.addEventListener('mouseout', function(){
         sortableAndAjax(this, "album-card", "album_")
-      })
-    })
-  }
+      });
+    });
+  };
+  if (pictureContainers != null) {
+    pictureContainers.forEach((pictureContainer) => {
+      pictureContainer.addEventListener('mouseover', function(){
+        sortableAndAjax(this, "picture-js", "picture_")
+      });
+    });
+  };
   if (categoryContainer != null) {
-    categoryContainer.addEventListener('click', function(){
+    categoryContainer.addEventListener('mouseout', function(){
       sortableAndAjaxWithHandler(categoryContainer, "category-card", "category_")
     })
-  }
+  };
 }
 
 

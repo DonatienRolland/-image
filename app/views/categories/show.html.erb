@@ -14,6 +14,7 @@
     <%= link_to 'Modifier cette categorie', edit_category_path(@category) %>
   </div>
 
+
   <% @category.albums.order('created_at ASC').each do |album| %>
     <hr>
     <div style="margin: 15px;" id="album_<%= album.id %>">
@@ -24,9 +25,9 @@
         data: { confirm: "Es tu sur?" }, class:"delete-album" %>
     </div>
 
-    <div class="row GetDataJs" id="pictures" data-target="eql-height_<%= album.title_no_space %>">
+    <div class="row GetDataJs pictures" data-target="eql-height_<%= album.title_no_space %>"  data-url="<%= sort_pictures_path %>">
       <% album.pictures.order('created_at ASC').each do |picture| %>
-        <div class="col-lg-3 col-xs-12 col-sm-4 card" style="margin-bottom: 20px;">
+        <div class="col-lg-3 col-xs-12 col-sm-4 card picture-js" style="margin-bottom: 20px;" id="<%= dom_id(picture) %>">
           <div class="picture-card eql-height_<%= album.title_no_space %>" style="background-image: url('<%= cl_image_path picture.photo %>' )">
           </div>
           <div class="card-description" style="position:relative;">
