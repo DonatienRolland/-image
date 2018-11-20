@@ -1,5 +1,6 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100');
+// @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900');
 
 // Define fonts for body and headers
 $body-font: "Noto Sans JP", "sans-serif";
@@ -9,24 +10,29 @@ $headers-font: "Noto Sans JP", "sans-serif";
 h1 {
   font-size: 35px !important;
   margin: 0px !important;
+  font-weight: 100 !important;
   }
 h2 {
   font-size: 30px !important;
   margin: 0px !important;
+  font-weight: 100 !important;
   }
 h3 {
   font-size: 25px !important;
   margin: 0px !important;
+  font-weight: 100 !important;
 }
 h4 {
   font-size: 21px !important;
   margin: 0px !important;
+  font-weight: 100 !important;
 }
 p {
   // font-size: 10px;
   font-size: 14px;
   margin: 0px !important;
   white-space: pre-line;
+  font-weight: 100 !important;
   }
 li {
   font-size: 14px;
@@ -35,7 +41,9 @@ li {
 a {
   font-size: 14px;
   margin: 0px !important;
+  font-weight: 100 !important;
 }
 input {
   font-size: 14px;
+  font-weight: 100 !important;
 }
