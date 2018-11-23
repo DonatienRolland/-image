@@ -7,14 +7,6 @@
   }
 }
 
-// font-weight: 400 pour la home page
-// home: icon fontsize 18px
-// // p font-weight 400
-// eloigner la dropdown de 250%
-
-
-// auteur: remonter p à 5%
-
 
 .links-contact {
   position: relative;
@@ -38,11 +30,14 @@
     font-size: 25px;
   }
 }
+.dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
+  left: 15vw !important;
+}
 
 #footer-white {
   a {
     color: white;
-    font-size: 25px;
+    font-size: 18px;
   }
   a:hover {
     font-size: 30px;
@@ -50,7 +45,7 @@
   }
   .dropdown-toggle i {
     color: white;
-    font-size: 23px;
+    font-size: 17px;
 
   }
   .dropdown-toggle i:hover {
@@ -60,12 +55,12 @@
   .dropdown-menu p {
     color: white;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400 !important;
   }
   .dropdown-menu a {
     color: white;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400 !important;
   }
 }
 
@@ -76,16 +71,6 @@
   align-items: center;
 }
 @media only screen and (max-width: 700px) {
-  .direction-share-links{
-    // display:flex;
-    // flex-direction: column;
-    // a {
-    //   padding-top: 10px !important;
-    // }
-    // p {
-    //   padding-top: 10px !important;
-    // }
-  }
   .dropup .dropdown-menu, .navbar-fixed-bottom .dropdown .dropdown-menu {
     top: -6% !important;
     left: 130% !important;
