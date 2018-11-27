@@ -30,22 +30,24 @@
     <div id="backOpen"></div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-      <% @categories.each do |category| %>
-        <% if category.visible %>
-          <div class="margin-by-category">
-            <% if !category.with_description? %>
-              <li><%= link_to category.title, categories_title_path(title: category.title_no_space), class:"#{'active-tab' if params[:title] ==  category.title_no_space} btns-burger" %> </li>
-            <% end %>
-            <% category.albums.each do |album| %>
-              <% if album.has_pictures? %>
-                <li><%= link_to album.title, album_path(title: album.title_no_space), class:"#{'active-tab' if params[:title] ==  album.title_no_space} btns-burger" %>
-                 </li>
+      <div class="scrolling" style="overflow: scroll;">
+        <% @categories.each do |category| %>
+          <% if category.visible %>
+            <div class="margin-by-category">
+              <% if !category.with_description? %>
+                <li><%= link_to category.title, categories_title_path(title: category.title_no_space), class:"#{'active-tab' if params[:title] ==  category.title_no_space} btns-burger" %> </li>
               <% end %>
-            <% end %>
-          </div>
+              <% category.albums.each do |album| %>
+                <% if album.has_pictures? %>
+                  <li><%= link_to album.title, album_path(title: album.title_no_space), class:"#{'active-tab' if params[:title] ==  album.title_no_space} btns-burger" %>
+                   </li>
+                <% end %>
+              <% end %>
+            </div>
 
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
