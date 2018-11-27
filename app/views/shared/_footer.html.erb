@@ -1,4 +1,4 @@
-<div id="fb-root"></div>
+<!-- <div id="fb-root"></div> -->
 <div id="footer" style=" <%= colorfooter.nil? ? "": "background-color: white;" %> ">
   <div class="links-contact">
     <% if params[:action] == "home" %>
@@ -12,24 +12,24 @@
     <% end %>
 
     <%= link_to 'https://www.instagram.com/hellolaterre_cr/?hl=fr', target: "_blank" do %>
-      <i class="fab fa-instagram"></i>
+      <i class="fab fa-instagram whiteJsNavBar"></i>
     <% end %>
     <%= mail_to User.where(auteur: true).first.email do %>
-      <i class="far fa-envelope"></i>
+      <i class="far fa-envelope whiteJsNavBar"></i>
     <% end %>
 
 
     <div class="dropup">
       <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex;">
-        <i class="far fa-share-square" ></i>
+        <i class="far fa-share-square whiteJsNavBar" ></i>
       </div>
       <div class="dropdown-menu">
         <!-- Dropdown menu links -->
         <div class="direction-share-links">
-          <p onclick="myFunction()" style="cursor: pointer;"><i class="fas fa-link"></i> <span class="hidden-xs">Copier le lien</span></p>
-          <a href="mailto:?&amp;body=<%= url_for(:only_path => false) %>&amp;"><i class="far fa-envelope"></i><span class="hidden-xs"> Envoyer par mail</span></a>
+          <p onclick="myFunction()" style="cursor: pointer;"><i class="fas fa-link whiteJsNavBar"></i> <span class="hidden-xs">Copier le lien</span></p>
+          <a href="mailto:?&amp;body=<%= url_for(:only_path => false) %>&amp;"><i class="far fa-envelope whiteJsNavBar"></i><span class="hidden-xs"> Envoyer par mail</span></a>
           <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fimage.herokuapp.com%2F&amp;src=sdkpreparse" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,left=,top=,screenX=,screenY=,width=300,height= 400');" target="_blank" title="Share This on Facebook">
-            <i class="fab fa-facebook-f"></i><span class="hidden-xs">Facebook</span>
+            <i class="fab fa-facebook-f whiteJsNavBar"></i><span class="hidden-xs">Facebook</span>
           </a>
         </div>
       </div>

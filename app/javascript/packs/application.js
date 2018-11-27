@@ -31,3 +31,6 @@ sortCard();
 
 import { clickOnSubmit } from "../components/checkVisiblePicture.js";
 clickOnSubmit();
+
+import { sideBar } from "../components/sideBar.js";
+sideBar();

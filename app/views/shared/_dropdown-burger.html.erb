@@ -1,5 +1,5 @@
-<div class="navbar-wagon-item">
-  <div class="dropdown" id="burger-menu-clicked">
+<div class="navbar-wagon-item ">
+  <div class="dropdown hidden-xs hidden-sm" id="burger-menu-clicked">
     <%= render 'shared/burger_icon' %>
     <ul class="dropdown-menu-burger dropdown-menu-right background-xs">
       <% @categories.each do |category| %>
@@ -25,5 +25,29 @@
       </div>
     </ul>
   </div>
+  <div class="hidden-md hidden-lg">
+    <span id="openNav"><%= render 'shared/burger_icon' %></span>
+    <div id="backOpen"></div>
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
+      <% @categories.each do |category| %>
+        <% if category.visible %>
+          <div class="margin-by-category">
+            <% if !category.with_description? %>
+              <li><%= link_to category.title, categories_title_path(title: category.title_no_space), class:"#{'active-tab' if params[:title] ==  category.title_no_space} btns-burger" %> </li>
+            <% end %>
+            <% category.albums.each do |album| %>
+              <% if album.has_pictures? %>
+                <li><%= link_to album.title, album_path(title: album.title_no_space), class:"#{'active-tab' if params[:title] ==  album.title_no_space} btns-burger" %>
+                 </li>
+              <% end %>
+            <% end %>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
 
