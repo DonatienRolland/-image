@@ -243,15 +243,46 @@
   overflow-scrolling: touch;
   position: absolute;
   overflow-y: scroll;
-  // overflow: scroll;
   top: 50px;
   bottom: 30px;
-  width: 100%;
+  width: 80%;
 }
 
+// #style-1::-webkit-scrollbar-track
+// {
+//   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+//   border-radius: 10px;
+//   background-color: #8c8c8e;
+// }
 
+// #style-1::-webkit-scrollbar
+// {
+//   width: 2px;
+//   background-color: #8c8c8e;
+// }
 
+// #style-1::-webkit-scrollbar-thumb
+// {
+//   border-radius: 5px;
+//   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+//   background-color: #555;
+// }
+.scrolling::-webkit-scrollbar
+ { width: 5px }
 
+.scrolling::-webkit-scrollbar-track
+  {
+    background: rgba(0,0,0,0.04)
+  }
 
+.scrolling::-webkit-scrollbar-thumb
+{
+  background: #3e3e3e;
+  // background: #8c8c8e;
+  border-radius: 1px;
+  height: 10px;
+  min-height: 10px;
+  max-height: 10px;
+}
 
 

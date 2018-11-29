@@ -30,7 +30,10 @@
     <div id="backOpen"></div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" id="closeNav">&times;</a>
-      <div class="scrolling">
+      <div class="scrolling" id="style-1">
+
+
+
         <% @categories.each do |category| %>
           <% if category.visible %>
             <div class="margin-by-category">
@@ -51,6 +54,7 @@
             <li><%= link_to "L'auteure", auteure_path, class:"btns-burger" %> </li>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>
