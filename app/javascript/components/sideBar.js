@@ -53,7 +53,7 @@ function sideBar(){
         // footer.style.backgroundColor = 'white'
         if ( icons != null ) {
           icons.forEach((icon) => {
-            icon.style.color = "black"
+            // icon.style.color = "black"
           })
         }
       }
