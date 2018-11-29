@@ -13,15 +13,6 @@
 }
 
 
-@media only screen and (max-width:800px) {
-  .intro-category {
-    background-color: $pink;
-    width: 100%;
-    padding: 5%;
-  }
-}
-
-
 .pink-background {
   background-color: $pink;
 }
@@ -29,7 +20,7 @@
 .display-center {
   display: flex;
   align-items: center;
-  height: 85vh;
+  // height: 85vh;
 
 }
 
@@ -54,6 +45,11 @@
 
 
 @media only screen and (max-width: 700px) {
+  .intro-category {
+    background-color: $pink;
+    width: 100%;
+    padding: 5%;
+  }
   #auteur-presentation {
     display: flex;
     flex-direction: column;

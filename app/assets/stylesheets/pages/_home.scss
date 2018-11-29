@@ -2,6 +2,10 @@
 
 body {
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  height:100%;
+
 }
 
 
@@ -10,7 +14,9 @@ body {
   margin-top: 12vh !important;
   // padding-bottom: 5vh;
   overflow: scroll;
-  height: 82vh;
+  min-height: calc(88vh-80px);
+  min-height: -moz-calc( 88vh - 80px );
+  min-height: -webkit-calc( 88vh - 80px );
 }
 
 
@@ -19,7 +25,13 @@ body {
     padding: 0 5%;
     position: static;
     width: 100vw;
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
+    min-height: calc(80vh-80px);
+    min-height: -moz-calc( 80vh - 80px );
+    min-height: -webkit-calc( 80vh - 80px );
+    height: -webkit-calc( 90vh - 80px );
+    height: -moz-calc( 90vh - 80px );
+    height: calc(90vh-80px);
   }
   .dropdown-menu-burger {
     background-color: white;

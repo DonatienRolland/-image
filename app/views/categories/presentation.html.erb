@@ -1,4 +1,4 @@
-<div class="container-all-dimension display-center" style="margin-bottom: 40px;">
+<div class="container-all-dimension display-center" style="">
     <div class="intro-category pink-background" style=" <%= @category.title == "Vos commandes" ? "width: 60%" : ""%> ">
       <div class="title-intro">
         <h3><%= @category.article_title %></h3>
@@ -10,6 +10,9 @@
 </div>
 
 
-<div style="background-color: white;">
-  <%= render 'shared/footer', category: @category, colorfooter: "black" %>
+<div class="footer-black" id="footer">
+  <%= render 'shared/footer'%>
 </div>
+
+
+

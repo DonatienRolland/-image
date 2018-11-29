@@ -2,6 +2,7 @@ function sideBar(){
   var openNav = document.getElementById("openNav");
   var closeNav = document.getElementById("closeNav");
   var body = document.getElementById("backOpen");
+  var bodytest = document.getElementById("body");
   var footer = document.getElementById("footer")
   /* Open the sidenav */
   var footerHome = document.getElementById("footer-white")
@@ -12,8 +13,10 @@ function sideBar(){
   openNav.addEventListener("click", function() {
      document.getElementById("mySidenav").style.display = "block";
       body.style.display = "block";
+      bodytest.style.overflow = "hidden";
+      console.log(bodytest.style.overflow)
       if (footer != null ) {
-        footer.style.backgroundColor = "#ffffff00";
+        // footer.style.backgroundColor = "#ffffff00";
         if (icons != null ) {
           icons.forEach((icon) => {
             icon.style.color = "white"
@@ -25,11 +28,12 @@ function sideBar(){
   closeNav.addEventListener("click", function() {
     document.getElementById("mySidenav").style.display = "none";
     body.style.display = "none";
+    bodytest.style.overflow = "scroll";
     if (footer != null ) {
      if (footerHome != null) {
         // footer.style.backgroundColor = '#ffffff00'
       } else {
-        footer.style.backgroundColor = 'white'
+        // footer.style.backgroundColor = 'white'
         icons.forEach((icon) => {
           icon.style.color = "black"
         })
@@ -39,11 +43,12 @@ function sideBar(){
   body.addEventListener("click", function() {
     document.getElementById("mySidenav").style.display = "none";
     body.style.display = "none";
+    bodytest.style.overflow = "scroll";
     if (footer != null ) {
      if (footerHome != null) {
         // footer.style.backgroundColor = '#ffffff00'
       } else {
-        footer.style.backgroundColor = 'white'
+        // footer.style.backgroundColor = 'white'
         if ( icons != null ) {
           icons.forEach((icon) => {
             icon.style.color = "black"

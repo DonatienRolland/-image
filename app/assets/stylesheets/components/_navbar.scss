@@ -203,19 +203,20 @@
 }
 
 #mySidenav {
+  scroll-snap-type: y mandatory;
   z-index: 4;
   display: none;
   background-color: #222223;
   height: 100vh;
   position: absolute;
-  padding-top: 12vh;
   width: 70vw;
   right: 0;
   top: 0;
   animation: sidenavanmie 0.5s;
   color: white;
   padding-left: 5%;
-  padding-bottom: 60px;
+  // padding-top: 12vh;
+  // padding-bottom: 60px;
   li {
       color: white;
     }
@@ -239,8 +240,13 @@
 
 .scrolling {
   -webkit-overflow-scrolling: touch;
-  overflow: scroll;
-  height: 90%;
+  overflow-scrolling: touch;
+  position: absolute;
+  overflow-y: scroll;
+  // overflow: scroll;
+  top: 50px;
+  bottom: 30px;
+  width: 100%;
 }
 
 

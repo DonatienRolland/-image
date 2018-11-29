@@ -1,8 +1,6 @@
 #footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
-  z-index: 10;
+  // z-index: 10;
   height: 80px;
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -11,22 +9,34 @@
   align-items: center;
   padding: 8px 5%;
   a {
-    color: black;
     padding: 8px;
+  }
+  p {
+    padding: 8px;
+  }
+  .links-contact p {
+    cursor: pointer;
+  }
+}
+.footer-black {
+  a {
+    color: black;
+  }
+  p {
+    color: black;
   }
   .links-contact a:hover {
     font-size: 25px;
-    // text-decoration: none;
+  }
+  .links-contact p:hover {
+    font-size: 25px;
+    cursor: pointer;
   }
   .direction-share-links i {
     color: black;
     font-size: 14px;
   }
-  // .direction-share-links i:hover {
-  //   font-size: 25px;
-  // }
 }
-
 
 .links-contact {
   position: relative;
@@ -35,14 +45,17 @@
   justify-self: center;
 }
 
-#footer-white {
+.footer-white {
+  position: fixed;
+  bottom: 0;
   a {
     color: white;
     font-size: 18px;
   }
-  // a:hover {
-  //   font-size: 30px;
-  // }
+  p {
+    color: white;
+    font-size: 18px;
+  }
   .direction-share-links i {
     color: white;
     font-size: 17px;
