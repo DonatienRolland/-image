@@ -205,7 +205,7 @@
 #mySidenav {
   z-index: 4;
   display: none;
-  background-color: gray;
+  background-color: #222223;
   height: 100vh;
   position: absolute;
   padding-top: 12vh;
@@ -220,11 +220,13 @@
       color: white;
     }
     a {
+      font-size: 20px;
+      font-weight: 400 !important;
       color: white;
     }
   #closeNav {
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 15px;
     position: absolute;
     font-size: 30px !important;
   }

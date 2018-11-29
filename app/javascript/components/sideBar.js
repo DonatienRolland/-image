@@ -54,4 +54,35 @@ function sideBar(){
   })
 }
 
-export { sideBar }
+
+
+function openShareLinks(){
+  const openLink = document.getElementById("openLinks");
+  const links = document.querySelector('.direction-share-links')
+  if (links != null) {
+    openLink.addEventListener("click", function(){
+      links.classList.toggle('hidden')
+    })
+    document.addEventListener('click', function(event) {
+      var inside = links.contains(event.target);
+      var isClickInside = openLink.contains(event.target);
+      if (!isClickInside && !inside) {
+        links.classList.add("hidden");
+      }
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+export { sideBar, openShareLinks }
