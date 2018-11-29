@@ -37,7 +37,7 @@ function sideBar(){
       } else {
         // footer.style.backgroundColor = 'white'
         icons.forEach((icon) => {
-          icon.style.color = "black"
+          // icon.style.color = "black"
         })
       }
     }
