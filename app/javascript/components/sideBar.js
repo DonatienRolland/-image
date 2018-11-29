@@ -1,9 +1,9 @@
 function sideBar(){
-  var openNav = document.getElementById("openNav");
-  var closeNav = document.getElementById("closeNav");
-  var body = document.getElementById("backOpen");
-  var bodytest = document.getElementById("body");
-  var footer = document.getElementById("footer")
+  const openNav = document.getElementById("openNav");
+  const closeNav = document.getElementById("closeNav");
+  const body = document.getElementById("backOpen");
+  const bodytest = document.getElementById("body");
+  const footer = document.getElementById("footer")
   /* Open the sidenav */
   var footerHome = document.getElementById("footer-white")
   if (footer != null ) {
@@ -13,8 +13,9 @@ function sideBar(){
   openNav.addEventListener("click", function() {
      document.getElementById("mySidenav").style.display = "block";
       body.style.display = "block";
+      // simulateClick(document.getElementById("mySidenav"));
       bodytest.style.overflow = "hidden";
-      console.log(bodytest.style.overflow)
+      // bodytest.style.position = "fixed";
       if (footer != null ) {
         // footer.style.backgroundColor = "#ffffff00";
         if (icons != null ) {
@@ -24,6 +25,7 @@ function sideBar(){
         }
       }
   })
+
   /* Close/hide the sidenav */
   closeNav.addEventListener("click", function() {
     document.getElementById("mySidenav").style.display = "none";
@@ -57,6 +59,8 @@ function sideBar(){
       }
     }
   })
+
+
 }
 
 
@@ -77,11 +81,6 @@ function openShareLinks(){
     });
   }
 }
-
-
-
-
-
 
 
 

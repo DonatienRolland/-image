@@ -209,7 +209,7 @@
   background-color: #222223;
   height: 100vh;
   position: absolute;
-  width: 70vw;
+  width: 100vw;
   right: 0;
   top: 0;
   animation: sidenavanmie 0.5s;
@@ -235,7 +235,7 @@
 
 @keyframes sidenavanmie {
   0% { width: 0}
-  100% { width: 70vw }
+  100% { width: 100vw }
 }
 
 .scrolling {
@@ -285,5 +285,7 @@
   min-height: 10px;
   max-height: 10px;
 }
-
+.dropdown-backdrop {
+  z-index: unset !important;
+}
 
