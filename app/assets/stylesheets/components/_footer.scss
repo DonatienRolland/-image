@@ -78,7 +78,19 @@
 
 @media only screen and (max-width: 700px) {
   #footer i {
-    font-size: 25px !important;
+    font-size: 18px !important;
+  }
+  #footer i:hover {
+    font-size: 18px !important;
+  }
+  #footer a {
+    padding: 8px 15px;
+  }
+  .footer-black .links-contact p:hover {
+    font-size: 18px;
+}
+  #footer p {
+    padding: 8px 15px;
   }
   .footer-black {
     position: relative;
@@ -88,9 +100,9 @@
     // font-size: 14px !important;
     font-size: 24px !important;
   }
-   .dropdown {
-    padding: 8px 8px 12px 8px !important;
-  }
+  //  .dropdown {
+  //   padding: 8px 8px 12px 8px !important;
+  // }
   .direction-share-links {
     flex-direction: column;
     position: absolute;
