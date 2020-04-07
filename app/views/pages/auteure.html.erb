@@ -2,7 +2,7 @@
 
     <div id="auteur-presentation row">
       <div class="div-picture-background col-sm-6" style="margin-top: 3%">
-        <%= cl_image_tag "ems5t14x61sac1g1mukk", alt: @auteur.alt, width:"100%", id:"size-xs", class:"hidden-xs" %>
+        <%= cl_image_tag @auteur.photo, alt: @auteur.alt, width:"100%", id:"size-xs", class:"hidden-xs" %>
         <p style="margin-top: 20px !important; font-size: 10px" class="hidden-xs"><%= @auteur.description %> </p>
         <%= cl_image_tag @auteur.photo, style:"width:100%", class:"visible-xs" %>
         <p style="margin-top: 10px !important; font-size: 9px" class="visible-xs"><%= @auteur.description %> </p>
@@ -10,11 +10,14 @@
 
       <div class="texts-auteur col-sm-6" style="">
         <p style="width: 100%; hyphens: auto; text-align: justify;font-size: 0.9em;line-height: 1.9em;"><%= @auteur.intro %></p>
+        <% if @auteur.motto.present? %>
           <br>
-        <p style="width: 180px;" id="moto"><%= @auteur.motto %></p> <br>
-
-        <p style="width: 240px;"><%= @auteur.thanks %>
-        </p>
+          <p style="width: 180px;" id="moto"><%= @auteur.motto %></p>
+        <% end %>
+        <% if @auteur.thanks.present? %>
+         <br>
+          <p style="width: 240px;"><%= @auteur.thanks %></p>
+        <% end %>
       </div>
     </div>
 
