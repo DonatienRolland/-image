@@ -20,6 +20,30 @@
         </div>
       <% end %>
     </div>
+  <% elsif @album.title == "test"%>
+
+    <% @pictures.each do |picture| %>
+      <% if @album.subtitle.present? && @pictures.first == picture %>
+        <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 15vh': ''; %>">
+          <p><%= @album.subtitle %></p>
+        </div>
+        <div class="first-title-album hidden-xs">
+          <p><%= @album.subtitle %></p>
+        </div>
+      <% end %>
+      <div class="picture-show"id="my-gallery">
+        <div class="visible-xs">
+          <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
+        </div>
+        <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
+          <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
+        </div>
+        <div class="title-picture">
+          <p class="p-picture"> <%= picture.title %></p>
+        </div>
+      </div>
+    <% end %>
+
   <% else %>
     <% @pictures.each do |picture| %>
       <% if @album.subtitle.present? && @pictures.first == picture %>
@@ -35,18 +59,8 @@
           <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
         </div>
         <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
-          <%#= cl_image_tag (picture.photo, :transformation=>[{:height=> picture.hauteur}, {:angle=>["vflip", picture.rotation]}  ])%>
           <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
         </div>
-
-
-
-
-
-
-        <!-- <div class="div-picture-background hidden-xs" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%#= cl_image_path picture.photo %>' ); -->
-         <!-- <%#= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%#=picture.hauteur%>px; background-position:<%#= picture.align_with_the_rotation %>"> -->
-        <!-- </div> -->
         <div class="title-picture">
           <p class="p-picture"> <%= picture.title %></p>
         </div>
@@ -54,4 +68,23 @@
     <% end %>
   <% end %>
 </div>
+
+<script src="https://product-gallery.cloudinary.com/all.js" type="text/javascript"></script>
+
+  <!-- <div id="my-gallery" style="max-width:80%;margin:auto">
+  </div> -->
+
+  <script type="text/javascript">
+  const myGallery= cloudinary.galleryWidget({
+    container: "#my-gallery",
+    cloudName: "dnks6vpqk",
+    mediaAssets: [
+      {tag: "electric_car_product_gallery_demo"} // by default mediaType: "image"
+      // {tag: "electric_car_product_gallery_demo", mediaType: "video"},
+      // {tag: "electric_car_360_product_gallery_demo", mediaType: "spin"}
+    ]
+  });
+
+  myGallery.render();
+</script>
 
