@@ -1,15 +1,15 @@
 <div class="container-all-dimension">
 
-    <div id="auteur-presentation">
-      <div class="div-picture-background" style="margin-top: 3%">
-        <%= cl_image_tag @auteur.photo, style:"height:#{@auteur.hauteur}px;", id:"size-xs", class:"hidden-xs" %>
+    <div id="auteur-presentation row">
+      <div class="div-picture-background col-sm-6" style="margin-top: 3%">
+        <%= cl_image_tag "ems5t14x61sac1g1mukk", alt: @auteur.alt, width:"100%", id:"size-xs", class:"hidden-xs" %>
         <p style="margin-top: 20px !important; font-size: 10px" class="hidden-xs"><%= @auteur.description %> </p>
-        <%= cl_image_tag @auteur.photo, style:"width:60vw", class:"visible-xs" %>
+        <%= cl_image_tag @auteur.photo, style:"width:100%", class:"visible-xs" %>
         <p style="margin-top: 10px !important; font-size: 9px" class="visible-xs"><%= @auteur.description %> </p>
       </div>
 
-      <div class="texts-auteur">
-        <p style="width: 170px; "><%= @auteur.intro %></p>
+      <div class="texts-auteur col-sm-6" style="">
+        <p style="width: 100%; hyphens: auto; text-align: justify;font-size: 0.9em;line-height: 1.9em;"><%= @auteur.intro %></p>
           <br>
         <p style="width: 180px;" id="moto"><%= @auteur.motto %></p> <br>
 

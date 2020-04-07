@@ -3,6 +3,8 @@ class Picture < ApplicationRecord
   mount_uploader :photo, PhotoUploader
   validates :photo, presence: true
 
+  before_save :rotation_config
+
   default_scope { order(position: :asc) }
 
   acts_as_list scope: :album
@@ -12,6 +14,15 @@ class Picture < ApplicationRecord
       return true
     end
   end
+
+  def height_or_width
+    if self.rotation == 0 || self.rotation == 180
+      return "height"
+    else
+      return "width"
+    end
+  end
+
   def align_with_the_rotation
     if self.rotation == 0
       return "left"
@@ -21,6 +32,26 @@ class Picture < ApplicationRecord
       return "right"
     else self.rotation == 270
       return "top"
+    end
+  end
+
+  def alt
+    if self.title.present?
+      return self.title
+    else
+      return "Chloé Rolland - Image / Photographe / Encadrement"
+    end
+  end
+
+  private
+
+  def rotation_config
+    r = self.rotation
+    if r != 0
+      while r > 359
+        r -= 360
+      end
+      self.rotation = 180 - r
     end
   end
 end

@@ -32,11 +32,21 @@
       <% end %>
       <div class="picture-show">
         <div class="visible-xs">
-          <%= cl_image_tag picture.photo, style:"width:90vw" %>
+          <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
         </div>
-        <div class="div-picture-background hidden-xs" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%= cl_image_path picture.photo %>' );
-         <%= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%=picture.hauteur%>px; background-position:<%= picture.align_with_the_rotation %>">
+        <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
+          <%#= cl_image_tag (picture.photo, :transformation=>[{:height=> picture.hauteur}, {:angle=>["vflip", picture.rotation]}  ])%>
+          <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
         </div>
+
+
+
+
+
+
+        <!-- <div class="div-picture-background hidden-xs" style="transform: rotate(<%=picture.rotation %>deg); background-image: url('<%#= cl_image_path picture.photo %>' ); -->
+         <!-- <%#= picture.rotation_vertical? ? "width: #{picture.hauteur}px;" : ""%>;height: <%#=picture.hauteur%>px; background-position:<%#= picture.align_with_the_rotation %>"> -->
+        <!-- </div> -->
         <div class="title-picture">
           <p class="p-picture"> <%= picture.title %></p>
         </div>

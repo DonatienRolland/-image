@@ -39,6 +39,18 @@
   }
 }
 
+@media only screen and (min-width:700px) {
+  .texts-auteur p {
+    width: 120px;
+    margin-top: 3%;
+    column-fill: auto;
+    height: 70vh;
+    column-count: 2;
+    column-gap: 70px;
+    padding-left: 69px;
+  }
+}
+
 #auteur-presentation {
   display: flex;
 }
@@ -57,7 +69,7 @@
   .texts-auteur {
     padding-top: 20px;
   }
-  .div-picture-background {
-    margin-left: 10%
-  }
+  // .div-picture-background {
+  //   margin-left: 10%
+  // }
 }

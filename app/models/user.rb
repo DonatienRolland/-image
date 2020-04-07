@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   audited #:comment_required => true
 
+  def alt
+    return "Chloé Rolland"
+
+  end
 end
