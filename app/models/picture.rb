@@ -39,7 +39,7 @@ class Picture < ApplicationRecord
     if self.title.present?
       return self.title
     else
-      return "Chloé Rolland - Image / Photographe / Encadrement"
+      return "Chloé Rolland - Image / Photographie / Encadrement"
     end
   end
 
