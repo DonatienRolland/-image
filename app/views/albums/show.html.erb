@@ -20,33 +20,11 @@
         </div>
       <% end %>
     </div>
-  <% elsif @album.title == "test"%>
-    <% @pictures.each do |picture| %>
-      <% if @album.subtitle.present? && @pictures.first == picture %>
-        <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 15vh': ''; %>">
-          <p><%= @album.subtitle %></p>
-        </div>
-        <div class="first-title-album hidden-xs">
-          <p><%= @album.subtitle %></p>
-        </div>
-      <% end %>
-      <div class="picture-show"id="my-gallery">
-        <div class="visible-xs">
-          <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
-        </div>
-        <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
-          <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
-        </div>
-        <div class="title-picture">
-          <p class="p-picture"> <%= picture.title %></p>
-        </div>
-      </div>
-    <% end %>
 
   <% else %>
     <% @pictures.each do |picture| %>
       <% if @album.subtitle.present? && @pictures.first == picture %>
-        <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 15vh': ''; %>">
+        <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 10vh': ''; %>">
           <p><%= @album.subtitle %></p>
         </div>
         <div class="first-title-album hidden-xs">
@@ -54,12 +32,18 @@
         </div>
       <% end %>
       <div class="picture-show">
-        <div class="visible-xs">
-          <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
-        </div>
-        <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
-          <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
-        </div>
+        <% if params[:title] == "La_carte" %>
+          <div id="La_carte"style="max-width:600px;">
+
+          </div>
+        <% else %>
+          <div class="visible-xs">
+            <%= cl_image_tag picture.photo, style:"width:90vw", :transformation=>[{:crop=>"scale"}, {angle: picture.rotation}] %>
+          </div>
+          <div class="div-picture-background hidden-xs" data-id="<%= picture.id %>">
+            <%= cl_image_tag(picture.photo, :alt=> picture.alt, :transformation=>[{"#{picture.height_or_width}":"#{picture.hauteur}", :crop=>"scale"}, {angle:picture.rotation}]) %>
+          </div>
+        <% end %>
         <div class="title-picture">
           <p class="p-picture"> <%= picture.title %></p>
         </div>
@@ -75,15 +59,26 @@
 
   <script type="text/javascript">
   const myGallery= cloudinary.galleryWidget({
-    container: "#my-gallery",
+    container: "#La_carte",
     cloudName: "dnks6vpqk",
+    carouselStyle: "none",
+    analytics: true,
+    imageBreakpoint: 100,
     mediaAssets: [
-      {tag: "carte"} // by default mediaType: "image"
+      {tag: "carte", responsive_breakpoints: {max_width: 400, height: 400 }}
+       // by default mediaType: "image"
       // {tag: "electric_car_product_gallery_demo", mediaType: "video"},
       // {tag: "electric_car_360_product_gallery_demo", mediaType: "spin"}
     ]
   });
 
-  myGallery.render();
-</script>
+  // mediaAssets: [{ tag: "shirt", transformation: { crop: "fill" } }]
 
+  myGallery.render();
+
+</script>
+<style>
+  .slide-item-wrap {
+    height: 300px !important;
+  }
+</style>
