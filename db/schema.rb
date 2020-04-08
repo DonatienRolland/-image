@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_085739) do
+ActiveRecord::Schema.define(version: 2020_04_08_084819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_085739) do
     t.string "photo"
     t.integer "position"
     t.boolean "visible", default: false
+    t.string "tags"
     t.index ["album_id"], name: "index_pictures_on_album_id"
   end
 

@@ -36,7 +36,9 @@ class Picture < ApplicationRecord
   end
 
   def alt
-    if self.title.present?
+    if self.tags.present?
+      return self.tags
+    elsif self.title.present?
       return self.title
     else
       return "Chloé Rolland - Image / Photographie / Encadrement"

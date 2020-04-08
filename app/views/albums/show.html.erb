@@ -21,7 +21,6 @@
       <% end %>
     </div>
   <% elsif @album.title == "test"%>
-
     <% @pictures.each do |picture| %>
       <% if @album.subtitle.present? && @pictures.first == picture %>
         <div class="first-title-album visible-xs" style="<%= @pictures.count == 1 ? 'padding-top: 15vh': ''; %>">
@@ -79,7 +78,7 @@
     container: "#my-gallery",
     cloudName: "dnks6vpqk",
     mediaAssets: [
-      {tag: "electric_car_product_gallery_demo"} // by default mediaType: "image"
+      {tag: "carte"} // by default mediaType: "image"
       // {tag: "electric_car_product_gallery_demo", mediaType: "video"},
       // {tag: "electric_car_360_product_gallery_demo", mediaType: "spin"}
     ]
